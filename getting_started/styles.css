@@ -1,0 +1,84 @@
+/*regla para todos los elementos h1 (selector de elementos)*/
+h1 {
+    color: red;
+}
+/*se pueden usar nultiples selectores separados por una coma*/
+p, li {
+    color: green;
+}
+
+/*permite cambiar el estilo por defecto de la lista desordenada*/
+li {
+    list-style-type: square;
+}
+
+/*selector de clase*/
+.special {
+    color: orange;
+    font-weight: bold;
+}
+
+/*selector de elemento y clase*/
+li.special,
+span.special {
+    color: orange;
+    font-weight: bold;
+}
+
+/*selector combinador descendente (espacio)*/ 
+/*aplica a un elemento B siempre y cuando sea descendiente de A -> A B {...}*/
+/*aplica solo a los elemntos em, que se encuentran en un elemento li*/
+li em {
+    color: rebeccapurple;
+}
+
+/*selector combinador hermano adyacente (+)*/
+/*aplica a un elemento que se encuentra adyacente y es de la misma jerarquia*/
+/*aplica al elemento p que se encuentra adyacente de h1*/
+
+h1 + p {
+    font-size: 200%;
+}
+
+/*esta regla se aplica a todo span que se encuentre contenido en un parrafo*/
+/*cuando el elemento span se encuentra afectado por el selector de clase, esta regla es ignorada por ser mas general*/
+p span{
+    color: red;
+}
+
+/*selectores en base a estado (:)*/
+/*aplican segun el estado del elemento*/
+a {
+    font-weight: bold;
+}
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*combinaciones de selectores y combinadores*/
+
+/*aplica a todos los span que estan dentro de un elemento <p> y estos dentro de un elemento <article>*/
+article p span {
+    color: crimson;
+}
+
+/*aplica a todos los <p> que se encuentren despues de un <ul> y este a su vez se encuentre despues de <h1>*/
+h1 + ul + p {
+    color:teal
+}
+
+/*aplica a todo elemento marcado con la clase special que se encuentre en un <p> y este este despues de un <h1> y <h1> se encuentre en body*/
+body h1 + p .special {
+    color: yellow;
+    background-color: black;
+    padding: 5px;
+}
+
