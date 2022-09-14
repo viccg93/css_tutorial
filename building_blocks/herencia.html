@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./herencia.css">
 </head>
 <body>
+
+    <p>la unica propiedad que se hereda color, tanto padding como border no se heredan</p>
     <ul class="main">
         <li>Item One</li>
         <li>Item Two
@@ -29,6 +31,38 @@
         </li>
     </ul>
 
-    <p>la unica propiedad que se hereda al aplicar la clase main es color, tanto padding como border no se heredan</p>
+    <div class="main-container">
+        <ul>
+            <li>Defaul <a href="#">link</a> color</li>
+            <li class="my-class-1">Inherit the <a href="#">link</a> color</li>
+            <li class="my-class-2">Reset the <a href="#">link</a> color</li>
+            <li class="my-class-3">Unset the <a href="#">link</a> color</li>
+        </ul>
+    </div>
+
+    <blockquote>
+        <p>Esta es una cita con estilo</p>
+    </blockquote>
+    <blockquote class="fix-this">
+        <p>Esta es una cita sin estilo</p>
+    </blockquote>
+
+    <h2>Titulo sin class</h2>
+    <h2 class="small">Titulo con clase small</h2>
+    <h2 class="bright">Titulo con clase bright</h2>
+
+    <div id="outer" class="container">
+        <div id="inner" class="container">
+            <ul>
+                <li class="nav"><a href="#">Uno</a></li>
+                <li class="nav"><a href="#">Dos</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="important-section">
+        <p class="better">Este es un parrafo</p>
+        <p class="better" id="winning">un selector para dominarlos a todos</p>
+    </div>
 </body>
 </html>

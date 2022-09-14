@@ -8,3 +8,117 @@
     color: black;
     font-weight: bold;
 }
+
+.main-container {
+    color: green;
+}
+
+.my-class-1 a {
+    color: inherit;
+}
+
+/*desactiva la herencia*/
+.my-class-2 a {
+    color: initial;
+}
+
+.my-class-3 a {
+    color: unset;
+}
+
+blockquote {
+    background-color: red;
+    border: 2px solid green;
+}
+
+/*all es un atajo para modificar ma mayoria de las propiedades a un valor como unset, inherit, initial o revert*/
+.fix-this {
+    all: unset;
+}
+
+h2 {
+    font-size: 2em;
+    color: #000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.small {
+    font-size: 1em;
+}
+
+.bright {
+    color: rebeccapurple;
+}
+
+/*especificidad*/
+
+/*especificidad: 001*/
+#outer a {
+    background-color: red;
+}
+
+/*especificidad: 201 - gana*/
+#outer #inner a {
+    background-color: blue;
+}
+
+/*especificidad: 104*/
+#outer div ul li a {
+    color: yellow;
+}
+
+/*especificidad: 113 - gana */
+#outer div ul .nav a {
+    color: white;
+}
+
+/*especificidad: 024*/
+div div li:nth-child(2) a:hover {
+    border: 10px solid black;
+}
+
+/*especificidad: 023*/
+div li:nth-child(2) a:hover {
+    border: 10px dashed black;
+}
+
+/*especificidad: 033  - gana*/
+div div .nav:nth-child(2) a:hover {
+    border: 10px double black;
+}
+
+a {
+    display: inline-block;
+    line-height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+/*uso de !important*/
+
+#important-section #winning {
+    background-color: red;
+    border: 1px solid black;
+}
+
+#important-section .better {
+    background-color: gray;
+    border: none !important; /*aplica esta regla, aun si existen coliciones con mayor especificidad*/
+}
+
+#important-section p {
+    background-color: blue;
+    color: white;
+    padding: 5px;
+}

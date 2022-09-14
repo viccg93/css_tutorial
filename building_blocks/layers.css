@@ -1,0 +1,29 @@
+@layer firstLayer, secondLayer;
+
+p {
+    background-color: red; /*aplica*/
+    color: grey !important; /*no aplica*/
+    border: 5px inset purple; /*aplica solo tamaño y color*/
+}
+
+p#addSpecificity {
+    border-style: solid !important; /*no aplica*/
+}
+
+@layer secondLayer {
+    p#addSpecificity {
+        background-color: green; /*no aplica*/
+        color: orange !important; /*no aplica, debido a un importan en una capa inferior sobre la misma propiedad*/
+        border-width: 10px; /*no aplica*/
+        border-style: dotted !important; /*no aplica, debido a un importan en una capa inferior sobre la misma propiedad*/
+    }
+}
+
+@layer firstLayer {
+    p#addSpecificity {
+        background-color: blue; /*no aplica*/
+        color: white !important; /*tendra prioridad sobre reglas en capas superiores, aplica*/
+        border-width: 5px; /*no aplica*/
+        border-style: dashed !important; /*tendra prioridad sobre reglas en capas superiores, aplica*/
+    }
+}
