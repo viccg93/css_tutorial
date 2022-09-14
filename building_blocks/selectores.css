@@ -1,0 +1,58 @@
+/*lista de selectores*/
+/*util cuando dos selectores tienen las mismas reglas, se listan los selectores separados por coma*/
+/*cuando se usa una lista, si alguno de los selectores es sintacticamente invalido, se anula la regla completa*/
+
+h1,
+.special {
+    color: blue;
+}
+
+/*selector que apunta a un elemento html*/
+h1 {
+    font-weight: bold;
+}
+
+/*selector que apunta a una clase*/
+.my-class {
+    border: 1px solid black;
+}
+
+/*selector que apunta a un id*/
+#divPrincipal {
+    background-color: red;
+    font-weight: bold;
+}
+
+/*selectores de atributos*/
+/*seleccionan los elementos en funcion de la presencia de cierto atributo*/
+a[title] {
+    color: green;
+}
+
+/*tambien en funcion de un valor concreto de cierto atributo*/
+a[href="http://example.com"] {
+    color: rebeccapurple;
+}
+
+/*pseudo-clases*/
+/*indican ciertos estados de los elementos en los que se aplicara el estilo*/
+a:hover {
+    text-decoration: dashed;
+}
+
+/*pseudo-elementos*/
+/*indican que el estilo se aplicara a cierta parte del elemento y no al elemento en su totalidad*/
+a::first-line {
+    padding-left: 8px;
+}
+
+/*combinadores*/
+/*incluyen el descendent combinator, child combinator entre otros*/
+
+/*child combinator (>) aplica solo a los descendientes directos*/
+/*contrario a descendent (espacio) que aplica a todo descendiente, aun indirecto*/
+article > p {
+    padding-top: 10px;
+}
+
+

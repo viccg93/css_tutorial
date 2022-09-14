@@ -86,3 +86,11 @@ ya que se entiende que se leen primero y las reglas marcadas con !important que 
 las reglas que no se encuentran en un layer se agrupan en una layer sin nombre y se consideran como la ultima
 layer declarada (con mayor prioridad), las declaraciones inline tambien tienen mayor precesencia que cualquier estilo
 definido por el autor (sobre todas las layers y bloques sin layer)
+
+## selectores
+
+un selector es un patron que indica el conjunto de elementos al que se aplicara el bloque de estilo
+al elemento o elementos que son seleccionados por el selector se les conoce como sujeto del selector
+
+los selectores se encuentran definidos en la especificacion de selectores CSS, la mayoria de estos selectores
+se encuentran definidos en la especificacion de selectores de nivel 3, una especificacion maduray con excelente soporte
