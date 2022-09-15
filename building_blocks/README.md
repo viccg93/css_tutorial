@@ -94,3 +94,167 @@ al elemento o elementos que son seleccionados por el selector se les conoce como
 
 los selectores se encuentran definidos en la especificacion de selectores CSS, la mayoria de estos selectores
 se encuentran definidos en la especificacion de selectores de nivel 3, una especificacion maduray con excelente soporte
+
+## modelo de caja
+
+en css todos los elementos tienen una caja a su alrededor, entender esas cajas es fundamental para crear layouts mas complejos
+
+## cajas block e inline
+
+existen 2 tipos de cajas en funcion de como se comportan en el flujo de la pagina y con relacion a otras cajas, ademas
+estas cajas tienen un outer display type y un inner display type
+
+se puede modificar el valor del display type mediante la propiedad display
+
+### outer display type
+
+**cuando la caja tiene outer display de block**
+
+- la caja se posiciona en una nueva linea, el siguiente elemento inicia en otra linea (no importa si es block o inline)
+- width y height se respetan
+- padding, margin y border causan que los elementos cercanos se alejen de la caja
+- la caja se extendera en la direccion inline hasta llenar el espacio disponible en su contenedor, incluso ocupando el 100% del contenedor
+
+elementos como <h1> y <p> usan block como outer display type por defecto
+
+**cuando la caja tiene outer display de inline**
+
+- la caja no genera un salto de linea, el siguiente elemento inicia en la misma linea (si no es block)
+- width y height no aplican
+- vertical padding, margins y borders no causan que otras cajas inline se alejen
+- horizontal padding, margins y borders causan que otras cajas inline se alejen
+
+elementos como <a>, <span> y <em> usan inline como outer display type por defecto
+
+### inner display type
+
+el inner display type indica como se dispondran los elementos dentro de la caja
+
+block e inline son las formas predeterminadas de comportamiento en la web
+por defecto los elementos dentro de la caja son dispuestos en normal flow y se comportan como cajas block o inline.
+
+una forma de cambiar el inner display type es mediante display: flex, el elemento aun usara block como outer display
+pero el inner display pasara a ser flex, lo que indica que cualquier descendiente disrecto de esta caja sera flex
+y se comportara de acuerdo a la especificacion flexbox, otro ejemplo es display:grid
+
+## CSS box model
+
+el box model define como las distintas partes de una caja (margin, border, padding y content) trabajan en conjunto,
+aplica totalmente a block box y parcialmente a inline box
+
+exite el modelo estandar y un modelo alternativo
+
+### partes de una caja
+
+- content box - el area donde se muestra el contenido, se dimensiona usando las propiedades width, height, inline-size y block-size
+- padding box - el area entre el contenido y el borde en forma de espacio en blaco (contiene el content y el espacio en blanco), se dimensiona con padding
+- border box - envuelve el content y el padding, se dimesiona con border
+- margin boz - es la capa superior, envuelve el conten, el padding, el border y espacio en blanco entre esta caja y otros elementos, se dimesiona con margin
+
+### modelo estandar
+
+cuando se usa el box model estandar, las propiedades de witdh y height aplican solo al content box, por lo que el tamaño real involucra sumar
+el espacio añadido del padding y del border, no se considera margin por que este es el espacio fuera del border
+
+### modelo alternativo
+
+cuando se usa el modelo alternativo, las propiedades de tamaño no son las de content, si no las del border, por lo que el area del content
+seran esas dimensiones menos el padding y el border, de la misma manera que el modelo estandar no se considera a margin
+
+para indicar que se usara el modelo alternativo de usa la regla box-sizing: border-box;
+
+### margin
+
+es un espacio invisible que rodea a una caja, es usado para establecer un espacio entre un elemento y los elementos adyacentes
+se pueden establecer o modificar todos los margenes mediante margin o individualmente mediante margin-top, margin-right, margin-bottom o margin-left
+
+cuando margin tiene valores negativos, lo elementos se sobreponen
+
+cuando los margenes de carios elementos colapsan se aplican las siguientes reglas dependiendo si son positivos o negativos
+
+- cuando ambos margenes son positivos, se toma el superior
+- cuando ambos son negativos, se toma el mas lejano a 0
+- cuando uno es negativo, se resta del total
+
+### border
+
+el border es dibujado entre el padding y el margin, cuando se usa el modelo estandar, el tamaño del border se agrega al width y height del box,
+cuando se usa el modelo alternativo, el tamaño del border se toma del content , dejando las medidas del box intactas
+
+es comun usar border como shorthand para afectar varias propiedades de todos los bordes al mismo tiempo
+
+div {
+    border: 1px solid rebeccapurple;
+}
+
+tambien se puede modificar cada borde de forma independiente
+
+- border-top
+- border-right
+- border-bottom
+- border-left
+
+alternativamente se puede modificar cada propiedad para todos los bordes
+
+- border-width
+- border-style
+- border-color
+
+si se desea ser mas especifico, se puede usar una propiedad concreta en un borde especifico
+
+- border-top-width
+- border-top-style
+- border-top-color
+
+y asi sucesivamente para todos los bordes
+
+
+### padding
+
+es el area entre el area del contenido y el borde, se usa para alejar el contenido del borde
+a diferencia de margin, padding no puede tener valores negativos
+
+cualquier fondo aplicado al elemento, se mostrara en el padding
+
+el shorthand padding permite modificar el padding de todos los lados de un elemento
+
+se puede indicar una medida para todos los lados
+
+div {
+    padding: 10px;
+}
+
+o medidas distintas
+
+div {
+    padding: 10px 15px 20px 25px;
+}
+
+tambien se pueden utilizar los propiedades independientes por lado
+
+- padding-top
+- padding-right
+- padding-bottom
+- padding-left
+
+### box model para inline boxes
+
+solo algunas reglas aplican a los elementos inline, en un ejemplo con span, podemos ver que:
+- propiedades como height y width son ignoradas
+- margin, border y padding verticales son respetadas pero no afectan la relacion de otro contenido con respecto al inline box
+- padding y border llegan a colapsar con otras palabras en el parrafo 
+- el margin, border y padding horizontales afectan la relacion con otro contenido (lo desplazan)
+
+### display inline-block
+
+inline-block es un valor especial de la propiedad display, es un punto medio entre inline y block,
+permite que se apliquen las propiedades width y height a un elemento inline, ademas de que y evitar transposiciones
+ademas de que no realiza un salto de linea como lo haria un elemento block
+
+un elemento con esta regla adquiere el siguiente subconjunto de caracteristicas de los elementos block:
+
+- las propiedades width y height son respetadas
+- margin, padding y border causan que los elementos se desplacen
+
+el tamaño del contenedor sera mayor al contenido si asi se indica con las propiedades width y height, ademas
+de que a diferencia de los elementos block, el elemento no se posiciona en una nueva linea

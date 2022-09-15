@@ -1,0 +1,173 @@
+p,
+ul {
+    border: 2px solid rebeccapurple;
+    padding: .5em;
+}
+
+.block,
+li {
+    border: 2px solid blue;
+    padding: .5em;
+}
+
+/*ul sigue siendo block box en outer display, pero en inner pasa a ser flex, por lo que sus descendientes toman este display type*/
+ul {
+    display: flex;
+    list-style: none;
+}
+
+/*cambiamos el display inline de span a block*/
+.block {
+    display: block;
+}
+
+/*revertimos estilos al contenedor y a sus descendientes*/
+.cleaned-container :nth-child(n) {
+    all: revert;
+}
+
+#inline-elements-container p,
+#inline-elements-container ul {
+    border: 2px solid rebeccapurple;
+}
+
+#inline-elements-container span,
+#inline-elements-container li {
+    border: 2px solid blue;
+}
+
+/*se cambia el display type a inline-flex, lo que implica que ul se comporta outer como inline e inner como flex*/
+#inline-elements-container ul {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+}
+
+/*cambiamos el display del elemento p de block a inline*/
+#inline-elements-container .inline {
+    display: inline;
+}
+
+.estandar {
+    width: 350px;
+    height: 150px;
+    margin: 10px;
+    padding: 25px;
+    border: 5px solid black;
+}
+.non-estandar {
+    box-sizing: border-box;
+    width: 350px;
+    inline-size: 350px;
+    height: 150px;
+    block-size: 150px;
+    margin: 10px;
+    padding: 25px;
+    border: 5px solid black;
+}
+
+.container {
+    border: 2px solid blue;
+}
+
+.box {
+    border: 2px solid rebeccapurple;
+    margin-top: -10px;
+    margin-right: 30px;
+    margin-bottom: 40px;
+    margin-left: 4em;
+    background-color: gray;
+    color: white;
+}
+
+.generic-box {
+    border: 2px solid rebeccapurple;
+    background-color: gray;
+    color: white;
+    height: 30px;
+}
+
+.positive-bottom {
+    margin-bottom: 30px;
+}
+.negative-bottom {
+    margin-bottom: -10px;
+}
+
+.positive-top {
+    margin-top: 10px;
+}
+.negative-top {
+    margin-top: -30px;
+}
+
+.bordered-container {
+    border-top: 5px dotted green;
+    border-right: 1px solid black;
+    border-bottom: 20px double rebeccapurple;
+}
+
+.bordered-box {
+    border: 1px solid #333;
+    border-top-style: dotted;
+    border-right-width: 20px;
+    border-bottom-color: hotpink;
+    margin: 5px;
+}
+
+.padding-container {
+    padding: 30px;
+    background-color: black;
+}
+
+.padding-box {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-right: 15px;
+    padding-left: 20px;
+    background-color: antiquewhite;
+}
+
+#inlineContainer .styled-inline-span {
+    margin: 20px;
+    padding: 20px;
+    width: 80px;
+    height: 50px;
+    background-color: lightblue;
+    border: 2px solid blue;
+}
+
+#inlineBlockContainer .styled-inline-block-span {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    width: 80px;
+    height: 50px;
+    background-color: lightblue;
+    border: 2px solid blue;
+}
+
+#navContainer li {
+    margin: 5px;
+}
+
+#navContainer .links-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+
+#navContainer .links-list a {
+    background-color: rgb(179,57,81);
+    color: #fff;
+    text-decoration: none;
+    padding: 1em 2em;
+    display: inline-block; /*hace que se respeten las medidas y el contenedor y demas elementos se ajusten al tamaño de los enlaces sin sobreponerse*/
+}
+
+#navContainer .links-list a:hover {
+    background-color: rgb(66, 28, 40);
+    color: #fff;
+  }

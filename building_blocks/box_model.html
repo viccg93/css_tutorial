@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modelo de caja</title>
+    <link rel="stylesheet" href="box_model.css">
+</head>
+<body>
+    <h2>ejemplos con distintos display types</h2>
+    <h3>elementos con outer display type block</h3>
+    <!--p es una caja de tipo block de forma predeterminada-->
+    <p>
+        soy un breve parrafo
+    </p>
+
+    <!--ul es una caja de tipo block tambien, lo que implica que genera un salto de linea y expande su ancho al del contenedor-->
+    <ul>
+        <li>elemento uno</li>
+        <li>elemento uno</li>
+        <li>elemento uno</li>
+    </ul>
+    <!--otro p que es de tipo block box-->
+    <p>
+        <!--los elementos span son inline box de forma predeterminada-->
+        soy otro parrafo, algunas de las <span class="block">palabras</span> han sido envueltas en un <span>elemento span</span>
+    </p>
+
+    <h3>elementos con outer display type block</h3>
+    <div id="inline-elements-container" class="clened-container">
+        <p> soy un parrafo. algunas de las <span>palabras</span> han sido envueltas en un <span>elemento span</span></p>
+        <ul>
+            <li>elemento uno</li>
+            <li>elemento dos</li>
+            <li>elemento tres</li>
+        </ul>
+        <p class="inline">soy un parrafo breve</p>
+        <p class="inline">soy otro parrafo, tambien breve</p>
+    </div>
+
+    <h3>box model estandar</h3>
+    <div class="estandar"></div>
+    <h3>box model alternativo</h3>
+    <div class="non-estandar"></div>
+
+    <h3>margin</h3>
+    <div class="container">
+        <div class="box">margen modificado</div>
+    </div>
+
+    <h3>elementos con margin que colapsa</h3>
+    <p>el margin-bottom de elemento 1 y el margin-top de elemento 2 colapsan, como ambos son <em>positivos</em>, se mantiene el mayor (30px de elemento 1)</p>
+    <div class="container">
+        <div class="generic-box positive-bottom">elemento 1</div>
+        <div class="generic-box positive-top">elemento 2</div>
+    </div>
+
+    <p>el margin-bottom de elemento 1 y el margin-top de elemento 2 colapsan, como ambos son <em>negativos</em>, se mantiene el mas lejano a 0 (-30px de elemento 1)</p>
+    <div class="container">
+        <div class="generic-box negative-bottom">elemento 1</div>
+        <div class="generic-box negative-top">elemento 2</div>
+    </div>
+
+    <p>el margin-bottom de elemento 1 y el margin-top de elemento 2 colapsan, como margin-top es <em>negativo</em>, se resta a margin-bottom <em>positivo</em> (30px - 30px)</p>
+    <div class="container">
+        <div class="generic-box positive-bottom">elemento 1</div>
+        <div class="generic-box negative-top">elemento 2</div>
+    </div>
+
+    <h3>borders</h3>
+    <div class="bordered-container">
+        <div class="bordered-box">caja con bordes</div>
+    </div>
+
+    <p>
+        es importante tener presente que en elementos anidados cuando se cambia el margin, padding o border en el elemento hijo,
+        se impacta solo la caja de contenido del padre, es decir la caja del padre no se ve afectada en su margin, padding o border.
+    </p>
+
+    <h3>padding</h3>
+    <div class="padding-container">
+        <div class="padding-box">caja con padding</div>
+    </div>
+
+    <h3>box model en inline boxes</h3>
+    <div id="inlineContainer" class="cleaned-container">
+        <p>
+            este es un parafo con un elemento <span class="styled-inline-span">span</span>. un span es un elemento inline
+            por lo que no respeta las propiedades de width y height
+        </p>
+    </div>
+
+    <h3>uso de inline-block</h3>
+    <div id="inlineBlockContainer" class="cleaned-container">
+        <p>
+            este es un parafo con un elemento <span class="styled-inline-block-span">span</span>. un span es un elemento inline
+            por lo que no respeta las propiedades de width y height
+        </p>
+    </div>
+
+    <h3>navbar ajustada inline-block</h3>
+    <div id="navContainer" class="cleaned-container">
+        <nav>
+            <ul class="links-list">
+                <li> <a href="#">link uno</a></li>
+                <li> <a href="#">link dos</a></li>
+                <li> <a href="#">link tres</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</body>
+</html>
