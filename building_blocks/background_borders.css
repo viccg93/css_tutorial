@@ -1,0 +1,119 @@
+.box {
+    background-color: midnightblue;
+}
+
+.box h2 {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.box span {
+    background-color: rgb(83, 83, 182);
+}
+
+.box p {
+    color: rgba(34, 214, 238, 0.925);
+}
+
+.wrapper div {
+    display: inline-block;
+    margin: 5px;
+    width: 200px;
+    height: 150px;
+    border: 2px solid black;
+}
+
+.a {
+    background-image: url('./balloons.jpg');
+}
+
+.b {
+    background-image: url('./star.png');
+    background-color: blue; /*el color queda debajo de la imagen de fondo*/
+}
+
+.c {
+    background-image: url('./star.png');
+    background-repeat: no-repeat;
+}
+
+.d {
+    background-image: url('./star.png');
+    background-repeat: repeat-x;
+}
+
+.e {
+    background-image: url('./star.png');
+    background-repeat: repeat-y;
+}
+
+.f {
+    background-image: url('./star.png');
+    background-repeat: repeat;
+}
+
+.g {
+    background-image: url('./balloons.jpg');
+    background-size: 200px 150px;
+}
+
+.h {
+    background-image: url('./balloons.jpg');
+    background-size: cover;
+}
+
+.i {
+    background-image: url('./balloons.jpg');
+    background-size: contain;
+}
+
+.j {
+    background-image: url('./star.png');
+    background-repeat: no-repeat;
+}
+
+.k {
+    background-image: url('./star.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.l {
+    background-image: url('./star.png');
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+}
+
+.m {
+    background-image: url('./star.png');
+    background-repeat: no-repeat;
+    background-position: 50% 90px;
+}
+
+.n {
+    background-image: url('./star.png');
+    background-repeat: no-repeat;
+    background-position: left 50px  bottom 50%;
+}
+
+.o {
+    background-image: url('./star.png');
+    background-repeat: no-repeat;
+    background-position: left 50%  top 50%;
+}
+
+.p {
+    background-image: linear-gradient(105deg, rgba(0,249,255,1) 39%, rgba(51,56,57,1) 96%);
+}
+
+.q {
+    background-image: radial-gradient(circle, rgba(0,249,255,1) 39%, rgba(51,56,57,1) 96%);
+    background-size: 100px 70px;
+}
+
+.wrapper .r {
+    width: 500px;
+    height: 400px;
+    background-image: url('./star.png'), url('./big-star.png');
+    background-repeat: repeat, repeat-x;
+}

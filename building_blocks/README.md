@@ -258,3 +258,102 @@ un elemento con esta regla adquiere el siguiente subconjunto de caracteristicas 
 
 el tamaño del contenedor sera mayor al contenido si asi se indica con las propiedades width y height, ademas
 de que a diferencia de los elementos block, el elemento no se posiciona en una nueva linea
+
+## backgrounds y borders
+
+la propiedad **background** es un shorthand de un numero considerable de propiedades que modifican el comportamiento
+del fondo, por lo que en ocasiones las reglas que la usan son complejas ya que modifican muchas propiedades al mismo tiempo
+por ejemplo:
+
+.box {
+  background: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0.2) 39%,
+        rgba(51, 56, 57, 1) 96%
+      ) center center / 400px 200px no-repeat, url(big-star.png) center
+      no-repeat, rebeccapurple;
+}
+
+### background color
+para modificar el color del fondo de un elemento se usa la propiedad **background-color**
+
+### background images
+para mostrar una imagen como fondo de un elemento se usa la propiedad **background-image**
+y el valor que recibe es url('[ruta de la imagen]')
+
+de manera predeterminada, si la imagen es mas grande que el elemento al que se le aplica como fondo
+solo se mostrara una porcion de la imagen
+
+por el contrario si la imagen es mas pequeña se repetira la imagen hasta que se llene el fondo del elemento
+
+### background repeat
+
+cuando la imagen es mas pequeña que el elemento, la propiedad background-repeat controla el comportamiento de
+la imagen para llenar el espacio que la imagen no cubre
+
+valores:
+- repeat - valor por defecto, se repite la imagen horizontal y vertical
+- repeat-x - se repite la imagen horizontalmente
+- repeat-y - se repite la imagen verticalmente
+- no-repeat - no se repite la imagen
+
+### background size
+permite modificar el tamaño de la imagen que se aplicara de fondo, se pueden pasar medidas de ancho y alto
+ademas permite que se use alguno de los siguientes valores:
+- cover - el navegador hace que la imagen tenga las dimensiones para cubrir el fondo, el ratio de la imagen
+            se mantiene, por lo que podria haber areas que no sean visibles
+
+- contain - el navegador hace que el tamaño de la imagen coincida con las dimesiones del fondo donde se aplicara,
+            es posible que existan espacios rellenados por el navegador si el ratio de la imagen y el del fondo son distintos
+
+- dimensiones concretas, en un escenario ideal donde las medidas corresponden con las di,emsiones de content y padding, se mostrara
+            la imagen cubriendo todo el contenedor, si las medidas son mas pequeñas que la caja, se comenzaran a posicionar
+            copias de la imagen para cubir el espacio o no (dependiendo el valor de background repeat)
+
+### background position
+permite indicar la posicion de la imagen de fondo, esta propiedad usa un sistema de cordenadas que inicia en la esquina superior izquierda,
+ese punto es considerado la cordenada (0,0) y es el valor por defecto, la propiedad admite los siguientes valores:
+
+- palabras clave como top, right o center
+- medidas y porcentaces como 20px y 10%
+- combinaciones de palabras clave y medidas
+
+La forma basica de usar la propiedad es pasar 2 valores donde el primero indica la posicion horizontal y el segundo la posicion vertical
+
+.box {
+    background-position: 20px top;
+}
+
+Alternativamente se puede usar con 4 valores, util para indicar distancia desde ciertos lados a manera de offset
+en el siguiente ejemplo el bakcground se posiciona a 20px del lado superior y a 10px del lado derecho
+
+.box {
+    background-position: top 20px right 10px;
+}
+
+cuando se usan 2 keywords de posicion no importa el orden, en el caso de usar porcentajes y medidas si es importante el orden ya que el primer valor
+siempre correspondera al eje x y el segundo al eje y
+
+### background gradients
+
+permite usan fondos con gradientes, estos actuan como imagenes, precisamente se asignan por medio de la propiedad background-image y las funciones
+de gradiente de CSS
+
+### multiple background images
+
+se pueden usar multiples background.image e igualmente aplicar las propiedades background-* de forma independiente a cada imagen
+separando los valores con coma
+
+.box {
+    background-image: url('img1.png'), url('img2.png'), url('img3.png');
+    background-repeat: no-repeat, repeat-x;
+}
+
+hay que tener las siguientes ocnsideraciones
+
+- cada uno de los valores aplican a la imagen segun el orden
+- cuando el numero de valores para los atributos es menor al numero de imagenes, se ciclan esas propiedades
+    de manera que en ejemplo anterior img3 tendria el valor de no repeat y si existiera un cuarto elemento
+    este tendria el valor de repeat-x
+- el orden de declaracion va de mayor a menor relevancia, la primera imagen es la capa superior, por lo que en caso
+    de que se sobrepongan las imagenes, las partes que se veran visibles iran en funcion del orden en que fueron declaradas
