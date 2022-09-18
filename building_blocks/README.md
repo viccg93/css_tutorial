@@ -115,7 +115,7 @@ se puede modificar el valor del display type mediante la propiedad display
 - padding, margin y border causan que los elementos cercanos se alejen de la caja
 - la caja se extendera en la direccion inline hasta llenar el espacio disponible en su contenedor, incluso ocupando el 100% del contenedor
 
-elementos como <code> <h1> y <p><code> usan block como outer display type por defecto
+elementos como <code> <h1> y <p> </code> usan block como outer display type por defecto
 
 **cuando la caja tiene outer display de inline**
 
