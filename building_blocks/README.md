@@ -55,9 +55,9 @@ se ponderan de acuerdo a los siguientes grupos, se suman y el valor resultante e
 |              :----:                     |    :----:   |    :----:     |  :----:  |  :----:  |     :----:     |
 | h1                                      |       0     |        0      |     0    |     1    |       0001     |
 | h1 + p::first-letter                    |       0     |        0      |     0    |     3    |       0003     |
-| li > a[href*="en-US"] > .inline-warning |       0     |        0      |     2    |     2    |       0022     |
+| li \> a[href*="en-US"] \> .inline-warning |       0     |        0      |     2    |     2    |       0022     |
 | #identifier                             |       0     |        0      |     0    |     0    |       0100     |
-| etiqueta <style> (inline)               |       0     |        0      |     0    |     0    |       1000     |
+| etiqueta \<style\> (inline)               |       0     |        0      |     0    |     0    |       1000     |
 
 Aunque esta forma de calculo de la especificidad es aproximada y esta orientada a entender el concepto, en realidad
 cada tipo de selector tiene su propio nivel de especificidad.
@@ -115,7 +115,7 @@ se puede modificar el valor del display type mediante la propiedad display
 - padding, margin y border causan que los elementos cercanos se alejen de la caja
 - la caja se extendera en la direccion inline hasta llenar el espacio disponible en su contenedor, incluso ocupando el 100% del contenedor
 
-elementos como <code> <h1> y <p> </code> usan block como outer display type por defecto
+elementos como \<h1\> y \<p\> usan block como outer display type por defecto
 
 **cuando la caja tiene outer display de inline**
 
@@ -124,7 +124,7 @@ elementos como <code> <h1> y <p> </code> usan block como outer display type por 
 - vertical padding, margins y borders no causan que otras cajas inline se alejen
 - horizontal padding, margins y borders causan que otras cajas inline se alejen
 
-elementos como <a>, <span> y <em> usan inline como outer display type por defecto
+elementos como \<a\>, \<span\> y \<em\> usan inline como outer display type por defecto
 
 ### inner display type
 
