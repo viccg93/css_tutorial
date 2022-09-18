@@ -111,9 +111,59 @@
     background-size: 100px 70px;
 }
 
+/*si usamos solo el selector de clase, tiene menos especificidad que el bloque .wrapper div {...}, por lo que las reglas de tamaño no aplicarian*/
 .wrapper .r {
     width: 500px;
     height: 400px;
-    background-image: url('./star.png'), url('./big-star.png');
-    background-repeat: repeat, repeat-x;
+    background-image: url('./star.png'), url('./big-star.png'), url('./balloons.jpg');
+    /*la tercer imagen toma el valor de repeat*/
+    background-repeat: repeat, repeat, no-repeat;
+}
+
+.wrapper .s,
+.wrapper .t,
+.wrapper .u {
+    width: 500px;
+    height: 400px;
+    overflow: auto;
+}
+
+.wrapper .s {
+    background-image: url('./balloons.jpg');
+    background-attachment: scroll;
+    padding: 20px;
+}
+
+.wrapper .t {
+    background-image: url('./balloons.jpg');
+    background-attachment: fixed;
+    padding: 20px;
+}
+
+.wrapper .u {
+    background-image: url('./balloons.jpg');
+    background-attachment: local;
+    padding: 20px;
+}
+
+.s .content-box,
+.t .content-box,
+.u .content-box {
+    display: block;
+    background-color: rgba(34, 46, 46, 0.486);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    width: 40%;
+    height: fit-content;
+}
+
+.wrapper .v {
+    /*  background-image background-position / background-size background-repeat,
+        background-image background-position background-repeat,
+        background-color
+    */
+    background:   
+    linear-gradient(105deg, rgba(255,255,255,.2) 39%, rgba(51,56,57,1) 96%) center center / 400px 200px no-repeat,
+url('./big-star.png') center no-repeat, 
+    rebeccapurple;
 }

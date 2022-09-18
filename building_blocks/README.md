@@ -306,7 +306,7 @@ ademas permite que se use alguno de los siguientes valores:
 - contain - el navegador hace que el tamaño de la imagen coincida con las dimesiones del fondo donde se aplicara,
             es posible que existan espacios rellenados por el navegador si el ratio de la imagen y el del fondo son distintos
 
-- dimensiones concretas, en un escenario ideal donde las medidas corresponden con las di,emsiones de content y padding, se mostrara
+- dimensiones concretas - en un escenario ideal donde las medidas corresponden con las dimensiones de content y padding, se mostrara
             la imagen cubriendo todo el contenedor, si las medidas son mas pequeñas que la caja, se comenzaran a posicionar
             copias de la imagen para cubir el espacio o no (dependiendo el valor de background repeat)
 
@@ -349,7 +349,7 @@ separando los valores con coma
     background-repeat: no-repeat, repeat-x;
 }
 
-hay que tener las siguientes ocnsideraciones
+hay que tener las siguientes consideraciones
 
 - cada uno de los valores aplican a la imagen segun el orden
 - cuando el numero de valores para los atributos es menor al numero de imagenes, se ciclan esas propiedades
@@ -357,3 +357,21 @@ hay que tener las siguientes ocnsideraciones
     este tendria el valor de repeat-x
 - el orden de declaracion va de mayor a menor relevancia, la primera imagen es la capa superior, por lo que en caso
     de que se sobrepongan las imagenes, las partes que se veran visibles iran en funcion del orden en que fueron declaradas
+
+### background attachment
+propiedad que define como se va a comportar el fondo cuando se hace scroll en el contenido, tiene 3 posibles valores:
+
+- scroll - el fondo esta en una posicion fija, tanto cuando se hace scroll en el contenido como en la pagina
+- fixed - el fondo se mueve cuando se hace scroll en la pagina, pero no cuando se hace scroll en su contenido
+- local - el fondo no se mueve cuando se hace scroll en la pagina, pero si se mueve cuando se hace scroll en su contenido
+
+esta propiedad solo tiene efecto cuando hay contenido sobre el cual hacer scroll.
+
+### background shorthand
+el uso de background permite que se asignen todas las propiedades de backgroun en una sola regla,
+es importante tener en cuenta las siguientes consideraciones:
+
+- el valor de background-color siempre va despues de la ultima coma
+- el valor de background-size debe de ir despues de background-position separado con el caracter /
+
+en caso de que se usen **multiples** fondos usando el **shorthand background** se deben de separar las declaraciones de cada uno con coma
