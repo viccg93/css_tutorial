@@ -164,6 +164,18 @@
     */
     background:   
     linear-gradient(105deg, rgba(255,255,255,.2) 39%, rgba(51,56,57,1) 96%) center center / 400px 200px no-repeat,
-url('./big-star.png') center no-repeat, 
+    url('./big-star.png') center no-repeat, 
     rebeccapurple;
+}
+
+.wrapper .w {
+    border: 10px double green;
+}
+
+.wrapper .x {
+    border: 10px solid rebeccapurple;
+    /*aplica a todos los border el mismo radius de 1em y este valor aplica tanto a radius horizontal como vertical de cada  esquina*/
+    border-radius: 1em;
+    /*aplica solo a la esquina superior derecha, radius horizontal de 10% y vertical de 30%*/
+    border-top-right-radius: 10% 20%;
 }

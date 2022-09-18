@@ -375,3 +375,20 @@ es importante tener en cuenta las siguientes consideraciones:
 - el valor de background-size debe de ir despues de background-position separado con el caracter /
 
 en caso de que se usen **multiples** fondos usando el **shorthand background** se deben de separar las declaraciones de cada uno con coma
+
+### borders
+las propiedades de border puede ser aplicado a cada lado de un elemento de manera independiente o utilizando el shorthand border
+que aplica las propiedades a todos los bordes
+
+h2 {
+    border: 1px solid black;
+}
+
+### rounded corners
+mediante la propiedad shorthand border-radius se pueden redondear todas las esquinas de un elemento, esta propiedad puede recibir:
+
+- 2 valores: corresponden a radius horizontal y radius vertical (se declaran en ese orden)
+- 1 valor: el mismo valor se aplica a radius horizontal y radius vertical
+
+alternativamente se pueden usar las propiedades longhand que permiten redondear esquinas especificas como border-top-right-radius 
+que recibe el valor del radius de la esquina superior derecha y puede ser uno o dos valores, cada esquina tiene su propiedad longhand

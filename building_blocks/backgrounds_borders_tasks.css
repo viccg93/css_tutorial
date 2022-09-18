@@ -1,0 +1,31 @@
+.wrapper > div{
+    display: inline-block;
+    margin: 5px;
+    width: 400px;
+    height: 200px;
+}
+
+.box-task1 {
+    border: 5px solid black;
+    border-radius: 10px;
+    background: url(balloons.jpg) center center / cover;
+}
+
+.box-task1 h2 {
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+}
+
+.box-task2 {
+    border: 5px solid lightblue;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 40px;
+}
+
+.box-task2 h2 {
+    padding: 2% 30%;
+    margin-top: 12%;
+    background-image: url('./star.png'), url('./star.png');
+    background-repeat: no-repeat, repeat-y;
+    background-position: center left, center right;
+}
