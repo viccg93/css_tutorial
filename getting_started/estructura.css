@@ -77,7 +77,7 @@ p{
 
 .generic-container {
     background-color: red;
-    background-image: url('./bg_grephic.png');
+    background-image: url('./bg_graphic.png');
     background-position: 10px 10px;
     background-repeat: repeat-x;
     background-attachment:fixed;

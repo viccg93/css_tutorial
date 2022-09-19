@@ -24,80 +24,80 @@
 }
 
 .a {
-    background-image: url('./balloons.jpg');
+    background-image: url('../../resources/img/balloons.jpg');
 }
 
 .b {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-color: blue; /*el color queda debajo de la imagen de fondo*/
 }
 
 .c {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: no-repeat;
 }
 
 .d {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: repeat-x;
 }
 
 .e {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: repeat-y;
 }
 
 .f {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: repeat;
 }
 
 .g {
-    background-image: url('./balloons.jpg');
+    background-image: url('../../resources/img/balloons.jpg');
     background-size: 200px 150px;
 }
 
 .h {
-    background-image: url('./balloons.jpg');
+    background-image: url('../../resources/img/balloons.jpg');
     background-size: cover;
 }
 
 .i {
-    background-image: url('./balloons.jpg');
+    background-image: url('../../resources/img/balloons.jpg');
     background-size: contain;
 }
 
 .j {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: no-repeat;
 }
 
 .k {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: no-repeat;
     background-position: top center;
 }
 
 .l {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: no-repeat;
     background-position: 100% 0%;
 }
 
 .m {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: no-repeat;
     background-position: 50% 90px;
 }
 
 .n {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: no-repeat;
     background-position: left 50px  bottom 50%;
 }
 
 .o {
-    background-image: url('./star.png');
+    background-image: url('../../resources/img/star.png');
     background-repeat: no-repeat;
     background-position: left 50%  top 50%;
 }
@@ -115,7 +115,7 @@
 .wrapper .r {
     width: 500px;
     height: 400px;
-    background-image: url('./star.png'), url('./big-star.png'), url('./balloons.jpg');
+    background-image: url('../../resources/img/star.png'), url('../../resources/img/big-star.png'), url('../../resources/img/balloons.jpg');
     /*la tercer imagen toma el valor de repeat*/
     background-repeat: repeat, repeat, no-repeat;
 }
@@ -129,19 +129,19 @@
 }
 
 .wrapper .s {
-    background-image: url('./balloons.jpg');
+    background-image: url('../../resources/img/balloons.jpg');
     background-attachment: scroll;
     padding: 20px;
 }
 
 .wrapper .t {
-    background-image: url('./balloons.jpg');
+    background-image: url('../../resources/img/balloons.jpg');
     background-attachment: fixed;
     padding: 20px;
 }
 
 .wrapper .u {
-    background-image: url('./balloons.jpg');
+    background-image: url('../../resources/img/balloons.jpg');
     background-attachment: local;
     padding: 20px;
 }
@@ -164,7 +164,7 @@
     */
     background:   
     linear-gradient(105deg, rgba(255,255,255,.2) 39%, rgba(51,56,57,1) 96%) center center / 400px 200px no-repeat,
-    url('./big-star.png') center no-repeat, 
+    url('../../resources/img/big-star.png') center no-repeat, 
     rebeccapurple;
 }
 

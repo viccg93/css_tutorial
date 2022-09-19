@@ -8,7 +8,7 @@
 .box-task1 {
     border: 5px solid black;
     border-radius: 10px;
-    background: url(balloons.jpg) center center / cover;
+    background: url(../../resources/img/balloons.jpg) center center / cover;
 }
 
 .box-task1 h2 {
@@ -25,7 +25,7 @@
 .box-task2 h2 {
     padding: 2% 30%;
     margin-top: 12%;
-    background-image: url('./star.png'), url('./star.png');
+    background-image: url('../../resources/img/star.png'), url('../../resources/img/star.png');
     background-repeat: no-repeat, repeat-y;
     background-position: center left, center right;
 }
