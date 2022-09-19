@@ -392,3 +392,72 @@ mediante la propiedad shorthand border-radius se pueden redondear todas las esqu
 
 alternativamente se pueden usar las propiedades longhand que permiten redondear esquinas especificas como border-top-right-radius 
 que recibe el valor del radius de la esquina superior derecha y puede ser uno o dos valores, cada esquina tiene su propiedad longhand
+
+## usando diferentes direcciones de texto
+
+generalmente usamos una orientacion de izquierda a derecha horizontal en css y de arriba hacia abajo, esa es la forma por defecto de CSS,
+pero tambien tiene soporte para renderizar los elementos en distintas direcciones (como en el caso de las escrituras arabiga y japonesa),
+a la forma en que el contenido y especificamente el texto se comporta, donde se posiciona y en que direccion va se le conoce como writing modes
+y esta propiedad nos permite cambiar el comportamiento predeterminado
+
+la propiedad writing-mode permite indicar si el texto es horizontal o vertical y recibe los siguientes valores:
+- horizontal-tb - direccion del flujo de bloque de top-to-bottom, el texto es horizontal (modo predeterminado)
+- vertical-lr - direccion del flujo de bloque de left-to-right, el texto es vertical
+- vertical-rl - direccion del flujo de bloque de right-to-left, el texto es vertical
+
+### writing modes y layout (block o inline)
+como ya vimos anteriormente hay elementos que se muestran como block o inline, el texto es uno de ellos y la forma en que se muestra (inline y block)
+esta relacionada con el writting mode y no con la pantalla fisica
+
+en el modo horizontal lo bloques se muestran de arriba hacia el fondo (top-to-bottom) y la direccion del texto es inline hacia la izquierda o derecha,
+en contraste en los modos verticales los bloques se muestran horizontalmente hacia la izquierda o derecha y el texto es inline de arriba hacia el fondo
+
+cuando cambiamos el writing mode, estamos cambiando que direccion es bloque y que direccion es inline, la **dimension bloque** es la direccion en que se
+muestran los bloques dependiendo el writing mode que se este usando y la **dimension inline** es siempre la direccion del texto
+
+### propiedades logicas vs fisicas
+aun cuando cambiamos el writing mode y por ende las dimensiones block e inline, podemos ver que las propiedades de width y height se aplican a los elementos
+de la misma manera, sin importar la direccion del contenido.
+
+en escenarios donde necesitamos que las medidas se adapten a la nueva direccion del contenido es util usar las propiedades logicas que son flow relative.
+
+- inline-size - el tamaño de la dimension inline (en horizontal es width y en vertical height)
+- block-size - el tamaño de la dimesion block (en horizontal es height y en vertical es width)
+
+de esta manera el tamaño de las dimensiones se adapta en funcion del flujo del contenido
+
+### propiedades logicas para border, padding y margin
+
+las propiedades de border, padding y margin son todas propiedades fisicas, por lo que
+al definirlas su efecto no considera el writing mode, afortunadamente tenemos propiedades alternativas
+
+antes de mostrar las propiedades alternativas es importante tener en cuenta que **todas estas propiedades flow relative usan los terminos start y end**
+en lugar de top-bottom y left-right (ya que end y start son mas claros para el concepto de dimesiones block e inline),
+
+- border - border-block y border-inline como shorthands, border-block-start y border-block-end como longhands
+- padding - padding-block y padding-inline como shorthands, padding-block-start y padding-block-end como longhands
+- margin - margin-block y margin-inline como shorthands, margin-block-start y margin-block-end como longhands
+
+border-block afecta en inicio y el final de la dimension block y border-inline afecta el inicio y final de la dimension inline
+cuando la dimension block es vertical, la dimension inline es horizontal
+cuando la dimension block es horizontal, la dimension inline es vertical
+
+### valores logicos
+
+de la misma forma que usamos valores fisicos como top, bottom, left y right, podemos usar valores logicos que corresponden a esos valores:
+
+- block-start
+- block-end
+- inline-start
+- inline-end
+
+estos valores logicos son relativos al flujo y se adaptan en funcion del writing mode (de la misma manera que las propiedades) y uno de sus usos mas comunes
+es cuando se usa float sobre un elemento para posicionarlo
+
+hay que tener cuidado con el uso de float y valores logicos, ya que es experimental y de momento solo firefox lo soporta
+
+### recomendaciones con el uso de propiedades logicas
+
+siempre que se usen las propiedades y valores logicos se recomienda revisar el soporte que brindan los navegadores ya que son propiedades recientes,
+si no se hace uso de valores distintos al predefinido de la propiedad writing-mode se puede seguir usando las versiones fisicas, aunque se espera
+una transicion completa hacia los valores y propiedades logicas

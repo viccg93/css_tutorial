@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text direction</title>
+    <link rel="stylesheet" href="./text_direction.css">
+</head>
+<body>
+    <h2>writitng modes</h2>
+    <div class="wrapper">
+        <div class="generic-box spaced-box">
+            <h2 class="text_mode_horizontal_tb">Este es un texto para demostrar los distintos writing modes</h2>
+        </div>
+        <div class="generic-box spaced-box">
+            <h2 class="text_mode_vertical_lr">Este es un texto para demostrar los distintos writing modes</h2>
+        </div>
+        <div class="generic-box spaced-box">
+            <h2 class="text_mode_vertical_rl">Este es un texto para demostrar los distintos writing modes</h2>
+        </div>
+    </div>
+    <h2>writing modes, dimension block y dimension inline</h2>
+    <div class="wrapper">
+        <div class=" large-box text_mode_horizontal_tb">
+            <h2>heading</h2>
+            <p> texto que demuestra el uso de writing modes en CSS</p>
+        </div>
+        <div class="large-box text_mode_vertical_rl">
+            <h2>heading</h2>
+            <p> texto que demuestra el uso de writing modes en CSS</p>
+        </div>
+    </div>
+    <h2>writing types con propiedades fisicas</h2>
+    <div class="wrapper">
+        <div class=" physical-box text_mode_horizontal_tb">
+            <h2 class="physical-heading">heading</h2>
+            <p> texto que demuestra el uso de writing modes en CSS</p>
+        </div>
+        <div class="physical-box text_mode_vertical_rl">
+            <h2 class="physical-heading">heading</h2>
+            <p> texto que demuestra el uso de writing modes en CSS</p>
+        </div>
+    </div>
+
+    <h2>writing types con propiedades logical</h2>
+    <div class="wrapper">
+        <div class=" logical-box text_mode_horizontal_tb">
+            <h2 class="logical-heading">heading</h2>
+            <p> texto que demuestra el uso de writing modes en CSS</p>
+        </div>
+        <div class="logical-box text_mode_vertical_rl">
+            <h2 class="logical-heading">heading</h2>
+            <p> texto que demuestra el uso de writing modes en CSS</p>
+        </div>
+    </div>
+
+    <h2>usando float con valores fisicos vs valores logicos</h2>
+    <div class="wrapper">
+        <div class=" card-box text_mode_horizontal_tb">
+            <img class="physical-img" src="../backgrounds_borders/star.png" alt="star">
+            la imagen que se muestra, es un ejemplo de un elemento posicionado con float y valores fisicos
+            donde el margin de la imagen se muestra incorrectamente al cambiar el writing mode
+        </div>
+        <div class=" card-box text_mode_vertical_rl">
+            <img class="physical-img" src="../backgrounds_borders/star.png" alt="star">
+            la imagen que se muestra, es un ejemplo de un elemento posicionado con float y valores fisicos
+            donde el margin de la imagen se muestra incorrectamente al cambiar el writing mode
+        </div>
+        <div class=" card-box text_mode_horizontal_tb">
+            <img class="logical-img" src="../backgrounds_borders/star.png" alt="star">
+            la imagen que se muestra, es un ejemplo de un elemento posicionado con float y valores logicos
+            que muestran correctamente le margin de la imagen aun cuando cambia el writing mode
+        </div>
+        <div class=" card-box text_mode_vertical_rl">
+            <img class="logical-img" src="../backgrounds_borders/star.png" alt="star">
+            la imagen que se muestra, es un ejemplo de un elemento posicionado con float y valores logicos
+            que muestran correctamente le margin de la imagen aun cuando cambia el writing mode
+        </div>
+    </div>
+</body>
+</html>
