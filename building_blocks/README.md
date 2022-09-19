@@ -461,3 +461,44 @@ hay que tener cuidado con el uso de float y valores logicos, ya que es experimen
 siempre que se usen las propiedades y valores logicos se recomienda revisar el soporte que brindan los navegadores ya que son propiedades recientes,
 si no se hace uso de valores distintos al predefinido de la propiedad writing-mode se puede seguir usando las versiones fisicas, aunque se espera
 una transicion completa hacia los valores y propiedades logicas
+
+## overflow
+
+cuando el contenido excede el area de un elemento (que tiene dimensiones fijas y no puede ampliarse) css siempre va a evitar la perdida de datos,
+por lo que va a mostrar el contenido sobrepuesto.
+
+este comportamiento se puede cambiar mediante las siguientes propiedades
+
+- overflow - permite controlar el comportamiento del contenido cuando hace overflow en ambos ejes
+- overflow-x - permite controlar el comportamiento del contenido cuando hace overflow en el eje x
+- overflow-y - permite controlar el comportamiento del contenido cuando hace overflow en el eje y
+
+a cada una de estas propiedades se les pueden asignar los siguientes valores
+
+- hidden - oculta la porcion de informacion que hace overflow
+- scroll - la informacion es contenida, pero es visible mediante el scroll
+- auto - muestra el scroll solo cuando la informacion hace overflow, en caso contrario el elemento oculta el scroll
+
+hay que tener cautela al examinar el caso de uso adecuado, ya que puede haber perdida de informacion, ademas de que
+en muchos casos (como el texto que hace overflow por sus dimensiones) son casos con otras soluciones mas adecuadas
+
+ya que el sobreuso de scroll puede afectar de manera negativa la experiencia de usuario
+
+### block formatting context
+
+cuando se usan los valores de scroll o auto, se esta creando un BFC, lo que significa que el contenido del elemento
+tiene su propio layout contenido, en terminos practicos esto implica que ningun elemento externo puede sobreponerse
+sobre el contenido interno del elemento y tampoco el contenido externo puede sobreponerse con el layout externo,
+la razon de este comportamiento es brindar una experiencia consistente de scroll
+
+### overflow en el diseño web
+
+las tecnicas de layout modernas consideran el overflow, trabajan sin consideraciones o dependencias a la cantidad de contenido
+que se mostrara en los elementos de la pagina web
+
+pero eso no siempre fue el estandar, por lo que es comun encontrar sitios legacy que usan contenedores con height fijas para alinear
+los bottom de las cajas, algo que tiene como consecuencia un diseño fragil en el que es comun que el contenido se sobreponga
+
+siempre hay que tener en cuenta que el uso de los valores de hidden y overflow esta reservado para casos especificos como por ejemplo
+donde de manera intencionada se ha diseñado tener un scroll, abusar de estas caracteristicas impacta negativamente en la experiencia
+de usuario

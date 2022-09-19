@@ -1,0 +1,34 @@
+.box {
+    /*el ejex x y eje y ocultan la informacion que hace overflow*/
+    overflow: hidden;
+}
+
+.scrolling-box {
+    /*el ejex x y eje y adquieren un scroll para visualizar la informacion que hace overflow*/
+    overflow: scroll;
+}
+
+.auto-scrolling-box {
+    /*el ejex x y eje y adquieren un scroll solo cuando existe overflow*/
+    overflow: auto;
+}
+
+.x-scrolling-box {
+    /*solo el eje x adquiere el scroll*/
+    overflow-x: scroll;
+}
+
+.y-scrolling-box {
+    /*solo el eje y adquiere el scroll*/
+    overflow-y: scroll;
+}
+
+.combined-scrolling-box {
+    /*scroll para el eje x y hidden para el eje y*/
+    overflow: scroll hidden;
+}
+
+.combined-auto-scrolling-box {
+    /*scroll para el eje x y scroll solo cuando existe overflow en el eje y*/
+    overflow: scroll auto;
+}
