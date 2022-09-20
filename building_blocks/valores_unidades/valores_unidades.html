@@ -8,6 +8,54 @@
     <link rel="stylesheet" href="./valores_unidades.css">
 </head>
 <body>
-    
+    <h2>width con unidades absolutas y relativas</h2>
+    <div class="wrapper">
+        <div class="box absolute-width">200px wide</div>
+        <div class="box vw-width">10vw (20%) viewport wide</div>
+        <div class="box em-width">10em wide</div>
+    </div>
+
+    <h2>uso de em y rem</h2>
+    <p>los elementos li que heredan de li tienen un valor de 1.5em sobre su parent que ya tenia un valor 1.5em sobre el elemento root (1em = 16px) </p>
+    <div>
+        <ul class="ems">
+            <li>uno</li>
+            <li>dos</li>
+            <li>tres
+                <ul>
+                    <p>a mi no me afecta la clase ems por que no soy li, mi font-size es heredado</p>
+                    <li>tres a (soy li y mi font-size se calcula con el font-size de mi parent)</li>
+                    <li>tres b
+                        <ul>
+                            
+                            <li>tres b 1</li>
+                            <li>tres b 2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <p>aunque los elementos li esten anidados, 1rem siempre es 16px </p>
+    <div>
+        <ul class="rems">
+            <li>uno</li>
+            <li>dos</li>
+            <li>tres
+                <ul>
+                    <li>tres a</li>
+                    <li>tres b
+                        <ul>
+                            <li>tres b 1</li>
+                            <li>tres b 2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h2>caja con un string</h2>
+    <div class="box text-box"></div>
 </body>
 </html>

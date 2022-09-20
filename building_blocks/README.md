@@ -502,3 +502,150 @@ los bottom de las cajas, algo que tiene como consecuencia un diseño fragil en e
 siempre hay que tener en cuenta que el uso de los valores de hidden y overflow esta reservado para casos especificos como por ejemplo
 donde de manera intencionada se ha diseñado tener un scroll, abusar de estas caracteristicas impacta negativamente en la experiencia
 de usuario
+
+## valores y unidades
+
+### valores clasificados como numericos
+
+tambien conocidos como numbers, son todos los siguientes data types (value types)
+
+| data type           | descripcion                                                             |
+|        :----:       |                           :----:                                        |
+| \<integer\>         |       numeros enteros como 255 o -55                                    |
+| \<number\>          |       numeros decimales con como 0.255, 128 o -1.2                      |
+| \<dimension\>       |    numeros con una unidad concreta como 45deg o 10px                    |
+| \<percentage\>      |   un porcentaje representa una porcion de algun otro valor como 50%     |
+
+el data type \<dimension\> es una sombrilla para los tipos \<length\>, \<angle\>, \<time\> y \<resolution\>
+
+### length
+uno de los tipos numericos mas comun es \<length\> que son valores con una unidad concreta como 10px o 30em, las unidades de
+este tipo pueden ser absolutas o relativas
+
+#### length unidades absolutas
+son unidades concretas que no estan en funcion de otros elementos y generalmente siempre tienen la misma medida
+
+|unidad	|nombre                 | unidad equivalente a           |
+|:----:	|:----:                 |              :----:            |
+|cm 	|centimetros 	        |1cm = 37.8px = 25.2/64in        |
+|mm 	|milimetros 	        |1mm = 1/10th de 1cm             |
+|Q 	    |cuartos de milimetros 	|1Q = 1/40th de 1cm              |
+|in 	|pulgadas 	            |1in = 2.54cm = 96px             |
+|pc 	|Picas 	                |1pc = 1/6th de 1in              |
+|pt 	|puntos 	            |1pt = 1/72nd de 1in             |
+|px 	|pixeles 	            |1px = 1/96th de 1in             |
+
+la unidad mas utilizada son los pixeles (px) ya que la mayoria de las otras unidades son de mayor utilidad
+para medios impresos que pantallas, normarmente no se usan centimetros en pantallas
+
+#### length unidades absolutas
+son unidades son relativas a las medidas de otros elementos como puede ser el font size del elemento parent
+o el tamaño del viewport
+
+la ventaja de usar unidades relativas es que con una planeacion cuidadosa se puede lograr que los elementos
+escalen con relacion a todo lo demas que se encuentra en la pagina web
+
+|unidad	    |relativa a |
+|:----:	    |:----:     |
+|em 	    |font-size del parent en caso de propiedades tipograficas como font-size, font-size del propio elemento en caso del resto de propiedades (como width) |
+|ex 	    |x-height de la fuente del elemento |
+|ch 	    |el ancho del grafo "0" de la fuente del elemento |
+|rem 	    |tamaño de la fuente del elemento root |
+|lh 	    |Line height del elemento |
+|rlh 	    |Line height del elemento root, cuando se usa en font-size o line-height del elemento root, es relativa a los valores initial |
+|vw 	    |1% del viewport's width |
+|vmin 	    |1% de la dimension mas pequeña del viewport |
+|vmax 	    |1% de la dimension mas larga del viewport |
+|vb 	    |1% del tamaño del bloque contenedor inicial en la direccion de la dimension block del elemento root |
+|vi 	    |1% del tamaño del bloque contenedor inicial en la direccion de la dimension inline del elemento root |
+|svw, svh 	|1% del width y height del small viewport, respectivamente |
+|lvw, lvh 	|1% del width y height del large viewport, respectivamente |
+|dvw, dvh 	|1% del width y height del dynamic viewport, respectivamente |
+|vh 	    |1% del height del viewport |
+
+cabe destacar que el viewport es la region que esta siendo visualizada en un instante dado, dicho de otra forma es la porcion del documento
+que se esta visualizando en un momento dado, aquello que no se ve en la pantalla, pero es parte del documento se puede considerar
+fuera del viewport
+
+el viewport de diseño (layout viewport) es el viewport inicial y la porcion de viewport visible se considera visual viewport
+el visual viewport es el que se ve afectado cuando se hace zoom
+
+#### ems y rems
+un em es una unidad cuyo valor depende del valor del font-size del parent, por lo que a medida que se van generando jerarquias este valor
+va a ir cambiando por ejemplo
+
+-|html - font size = 16px, para todos los descendientes directos 1em = 16px
+--|body - font size = 1.5em (16px * 1.5 = 24px), para todos los descendientes directos 1em = 24px
+---|div - font size = 1.5em (24px * 1.5 = 36px), para todos los descendientes directos 1em = 36px
+
+aunque body y div tienen un font-size = 1.5em, el valor de em cambia en funcion del parent de cada elemento
+
+un rem es similar a em, solo que este no depende del valor del font-size del parent, depende del valor del font-size del elemento root (el mayor parent)
+por lo que no importa el nivel en que se encuentre en la jerarquia un elemento, 1 rem siempre esta en funcion del font-size del elemento root (generalmente html)
+
+-|html - font size = 16px, para todos los descendientes directos 1em = 16px
+--|body - font size = 1.5rem (16px * 1.5 = 24px)
+---|div - font size = 1.5rem (16px * 1.5 = 24px)
+
+el valor de rem siempre es el mismo por que hace referencia exclusivamente al font-size del elemento root, solo cambiaria si se cambia root
+
+### porcentajes
+los porcentajes son porciones del elemento parent, por ejemplo cuando se establece que width es 50% de un elemento, significa que este elemento tendra
+un width del 50% del width su parent, si indica que su font-size es 80%, lo es con respecto al font-size de su parent y asi para todas las propiedades
+que aceptan valores de porcentajes (\<length-percentage\>)
+
+### numeros
+finalmente se pueden usar numeros que no tengan unidad de medida, un ejemplo del uso de numeros es la propiedad opacity que recibe un valor decimal entre 0 y 1
+si el valor de opacity es mas cercano a 1, la caja y sus elementos son mas opacos y entre mas cercano a 0, la caja y sus elementos seran mas transparentes
+
+### color
+existen multiples valores para especificar el color, los metodos mas comunes y con mayor soporte son los siguientes:
+
+- color keywords (valores de tipo \<color\>) como *rebeccapurple, blue, red*
+- valores rgb hexadecimales como *#02798b, #128a7d*
+- valores rgb mediante la funcion rgb() como *rgb(255,255,255)*
+- valores rgba mediante la funcion rgba() como *rgba(255,255,255,0.3)*, similar a rgb pero con el componente alpha para la transparencia
+
+la principal diferencia entre usar el valor rgba() y la propiedad opacity es que alpha aplica al color que se esta especificando mientras opacity aplica
+al elemento y todo su contenido
+
+los navegadores que implementan el standard CSS de nivel 4 aceptan que la funcion rgb() tenga el parametro de alpha como si fuera rgba(), por lo que
+ambas funciones se comportan igual, usar rgb() o rgba() queda a preferencia del programador, pero usar las funciones de forma separada generalmente
+brinda un mejor soporte y permite identificar de una manera mas rapida donde se esta usando transparencia en el codigo
+
+alternativamente podemos especificar los valores de color con las funciones 
+- hsl mediante la funcion hsl() como *hsl(188, 97%, 28%)*
+- hsla mediante la duncion hsla() *hsla(188, 97%, 28%,0.3)*
+
+hsl es un modelo de color que usa **hue, saturation y lightness** de manera alternativa a rgb y que esta basado en la rueda de color
+
+- hue es la sombra base del color, representa los angulos de la rueda (0-360)
+- saturation indica que tan saturado es el color (0% - 100%) donde 0% es auscencia de color
+- lightness indica que tan brillante es el color (0% - 100%) donde 0% es sin luz y 100% completamente lleno de luz
+
+se pueden usar ambos modelos, pero se recomienda usar solo uno por proyecto para brindar uniformidad
+
+### imagenes
+el data type \<image\> representa que una imagen es valor valido, puede ser un archivo al que se apunta mediante url() o un gradiente
+
+- url()
+- linear-gradient() o cualquier otra funcion de gradiente
+
+existen otras formas de apuntar a imagenes como element(), image(), cross-fade() y algunas mas pero debido a que no tienen un soporte
+generalizado, las mas convenientes son url() y gradientes
+
+### position
+el data type \<position\> representa un set de coordenadas 2D, una propiedad que admite valores de este tipo es background-position
+esta compuesta por 2 valores donde el primero es la posicion horizontal y el segundo la vertical, admite:
+- keywords como top, bottom, left, right y center
+- valores de tipo lenght que indican offsets (primer valor es con respecto al left y el segundo al top)
+- combinacion de keyword y lenght
+
+### identificadores y strings
+
+cuando usamos keywords como rebeccapurple o center no necesitamos usar comillas por que son identificadores que CSS entiende, pero
+para especificar contenido que generamos, se usan strings y estas deben de ir en comillas, para indicar que es un texto y no
+un identificador que se debe de interpretar
+
+### funciones
+son un grupo de data types que realizan una funcion repetitiva, ejemplo de estos types son calc() y url()

@@ -1,0 +1,40 @@
+.wrapper {
+    font-size: 2em;
+}
+
+.box {
+    border: 5px solid navy;
+    background-color: lightblue;
+    margin: 10px;
+}
+
+.absolute-width {
+    inline-size: 200px;
+}
+
+.vw-width {
+    /*10% del width del viewport*/
+    inline-size: 10vw;
+}
+
+.em-width {
+    /*diez veces el font-size del parent (wrapper) que es 1em*/
+    inline-size: 10em;
+}
+
+html {
+    font-size: 16px;
+}
+
+.ems li{
+    font-size: 1.5em;
+}
+
+.rems li{
+    font-size: 1.5rem;
+}
+
+/*inyecta una cadena en el elemento con la clase text-box*/
+.text-box::after {
+    content: "cadena inyectada desde css";
+}
