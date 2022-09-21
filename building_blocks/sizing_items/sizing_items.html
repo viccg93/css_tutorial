@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sizing items</title>
+    <link rel="stylesheet" href="./sizing_items.css">
+</head>
+<body>
+    <h2>medidas en porcentajes</h2>
+    <p>aplicar una dimension en procentaje, generalmente va a estar en funcion de la dimension del parent</p>
+    <div class="wrapper">
+        wrapper 100%
+        <div class="large-box"> caja grande 80%</div>
+        <div class="box"> caja 50%</div>
+        <div class="small-box"> caja pequeña 20%
+            <div class="large-box"> caja grande 80%</div>
+            <div class="box"> caja 50%</div>
+            <div class="small-box"> caja pequeña 20%</div>
+        </div>
+    </div>
+
+    <h2>medidas en porcentajes</h2>
+    <p>aplicar padding y margin en procentajes, siempre va a estar en funcion de la dimension inline del elemento parent
+        y esta medida aplica a todos los lados
+    </p>
+    <div class="wrapper">
+        <div class="spaced-box"> soy una caja con pading y margin en porcentajes</div>
+    </div>
+
+    <h2>uso de min y max</h2>
+    <p>las propiedades min y max, funcionan como limites, cuando las propiedades intrinsecas
+        son mas pequeñas o mas grandes respectivamente que su contenedor o el valor length se realiza o se limita el escalado
+        o dimensionamiento
+    </p>
+    <div class="wrapper">
+        <div class="box">
+            cuando se usa la propiedad width, el escalado es obligatorio si se requiere para cubir la dimension especificada
+            <img class="width" src="../../resources/img/big-star.png" alt="star">
+        </div>
+        <div class="box">
+            cuando se usa la propiedad max-width no se realiza escalados si la simension es menor, ya que sus dimenciones
+            son menores a max-width
+            <img class="max" src="../../resources/img/big-star.png" alt="star">
+        </div>
+        cuando las dimensiones intrinsecas superan el valor dado pro max-width, se forza a un escalado, en este caso
+        como la regla es max-width = 100%, la imagen se escala al 100% del width del contenedor
+        <div class="mini-box">
+            <img class="max" src="../../resources/img/big-star.png" alt="star">
+        </div>
+    </div>
+
+    <h2>unidades viewport</h2>
+    <p>
+        uso de vw y vh para el tamaño de la caja y el font-size
+    </p>
+    <div class="viewport-box">
+        A
+    </div>
+</body>
+</html>

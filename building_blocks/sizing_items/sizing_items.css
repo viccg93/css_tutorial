@@ -1,0 +1,47 @@
+.wrapper {
+    inline-size: 100%;
+    border: 2px solid black;
+}
+
+.wrapper div{
+    border: 2px solid black;
+}
+
+.box {
+    inline-size: 50%;
+    background-color: green;
+}
+
+.small-box {
+    inline-size: 20%;
+    background-color: yellow;
+}
+
+.large-box {
+    inline-size: 80%;
+    background-color: brown;
+}
+
+.spaced-box {
+    margin: 10%;
+    padding: 10%;
+}
+
+.mini-box {
+    width: 20px;
+}
+
+.width {
+    width: 100%;
+}
+
+.max {
+    max-width: 100%;
+}
+
+.viewport-box {
+    width: 20vw;
+    height: 20vh;
+    border: 5px solid blue;
+    font-size: 10vh;
+}

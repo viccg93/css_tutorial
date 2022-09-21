@@ -649,3 +649,81 @@ un identificador que se debe de interpretar
 
 ### funciones
 son un grupo de data types que realizan una funcion repetitiva, ejemplo de estos types son calc() y url()
+
+## sizing items
+
+existen distintas formas de especificar el tamaño de los distintos elementos, es importante entender como funcionan y en que casos
+es preferible usar una u otra
+
+### tamaño natural o intrinseco
+
+el tamaño natural se puede definir como las medidas que tiene un elemento sin que se le apliquen reglas CSS y aun sin estas reglas
+pueden tener un tamaño dado por caracteristicas intrinsecas al elemento o su contenido, es decir que no definimos nosotros
+sino son parte del elemento, entre estas caracteristicas intrinsecas se puede encontrar el tamaño.
+
+dos ejemplo pueden ser una imagen que ya tiene un tamaño propio y al agregarla a nuestra pagina se mostrara con dicho tamaño
+que no definimos nosotros, es intrinseco a la imagen
+
+lo mismo pasa con un div, al declararlo tiene un valor de height (dimension block) igual a 0 y conforme la cantidad de contenido
+que tenga ese elemento vaya cambiando su dimension tambien lo hara, es decir su medida es intrinseca a su contenido
+
+### tamaño especifico
+
+cuando se establece un valor expecifico al tamaño de un elemento, este queda limitado a ese tamaño sin importar el contenido
+o las dimensiones intrinsecas, a estas medidas definidas se les conoce como medidas extrinsecas
+
+se debe de tener cuidado al fijar las dimensiones de los elementos (en especial el height) por que es posible que el contenido
+sea mayor que las dimensiones declaradas y nos enfrentemos a contenido que hace overflow
+
+### uso de porcentajes
+cuando se usan porcentajes para definir las medidas extrinsecas de un elemento, lo mas importante que debemos de considerar
+es **en relacion a que elemento esta funcionando ese porcentaje**, normalmente es el elemento parent, si tenemos un div
+wrapper que tiene un inline-size de 100% intrinsecamente y contiene un elemento div que tiene un inline-size de 50% extrinseco,
+este porcentaje funciona en base a su parent, si la propiedad del parent cambia a 50px, la del div contenido sera de 25px (50%)
+
+siempre hay que tener cuidado al definir un valor en porcentaje, de cual es la medida a la que se esta refiriendo ese porcentaje
+
+### uso de porcentajes en margin y padding
+cuando definimos el padding o el margin con porcentajes, su comportamiento es distinto, ya que el porcentaje que se aplica
+a todos los lados siempre esta en relacion la dimension inline
+
+se podria pensar que para los lados top y bottom el porcentaje esta en funcion de la dimension block, pero no es asi, siempre
+que se usan porcentajes en margin y padding el porcentaje esta en funcion solo de la dimension inline para todas las dimensiones
+
+debido a ese comportamiento, usar porcentajes en esas propiedades es de gran utilidad para tener margins y padding uniformes
+a un porcentaje de la dimension inline
+
+### max y min sizes
+
+son propiedades que definen el tamaño minimo o maximo que puede tener una dimension, lo que es util cuando queremos que una caja
+pueda crecer o reducirse si su tamaño aumenta o disminuye pero solo hasta ciertos limites
+
+las propiedades de dimensiones minimas
+- min-width - establece la dimension minima de width, el ancho menor maximo que un elemento tendra
+- min-height - establece la dimension minima de height, por ejemplo un div tendra como limite este height pese a que no tenga contenido
+
+las propiedades de dimensiones maximas
+- max-width - establece la dimension maxima de width
+- max-height - establece la dimension maxima de height
+
+un uso comun de estas propiedades es en imagenes que pueden ser mas grandes o mas pequeñas que el elemento que las contendra,
+obligando a que estas escalen sus dimensiones
+
+si la imagen tiene una dimensiones intrinsecas menores a max-height y max-width, estas se respetaran, solo en el caso de que la imagen
+supere los valores de estas propiedades se hara un escalado, tal como lo hace height y width
+
+el mismo comportamiento sucede si las dimensiones son mayores a min-height y min-width, al ser mayores se mantendran sus dimensiones
+intrinsecas, solo cuando estas dimensiones sean menores se realizara un eslado como lo hace height y width
+
+esta tecnica es usada para hacer imagenes responsivas, pero es importante que se evite usar con imagenes muy largas, ya que
+en ese caso se deberian tener imagenes del tamaño adecuado y evitar la carga y escalado de una imagenes muy pesadas, algo
+que puede generar costos y hacer el sitio web lento
+
+### unidades viewport
+
+el viewport es la unidad visible de una pagina web, es decir que esta sujeta a factores como el tamaño de la ventana
+o el dispositivo donde se visita la pagina
+
+las unidades del viewport son vw y vh que representan el 1% del tamaño del width y height del area visible respectivamente
+
+cuando se indica que un elemento es 10vw se esta indicando que dicho elemento siempre tendra un width del 10% del arrea visible
