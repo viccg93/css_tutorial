@@ -1,0 +1,55 @@
+.good-looking-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid rgb(189, 177, 177);
+    border-bottom: 1px solid rgb(189, 177, 177);
+    font-size: 2vh;
+}
+
+.good-looking-table tfoot {
+    border-top: 1px solid rgb(189, 177, 177);
+}
+
+.good-looking-table thead th:nth-child(1) {
+    width: 35%;
+}
+
+.good-looking-table thead th:nth-child(2) {
+    width: 15%;
+}
+
+.good-looking-table thead th:nth-child(3) {
+    width: 10%;
+}
+
+.good-looking-table thead th:nth-child(4) {
+    width: 40%;
+}
+
+.good-looking-table th,
+.good-looking-table td {
+    padding: 0.125em 0.3em 0.25em 0.3em;
+}
+
+.good-looking-table th:nth-child(2),
+.good-looking-table th:nth-child(3),
+.good-looking-table tbody td:nth-child(2),
+.good-looking-table tbody td:nth-child(3) {
+    text-align: right;
+}
+
+.good-looking-table th:nth-child(1),
+.good-looking-table th:nth-child(4),
+.good-looking-table tbody td:nth-child(1),
+.good-looking-table tbody td:nth-child(4) {
+    text-align: left;
+}
+
+.good-looking-table tfoot th:nth-child(1) {
+    text-align: right;
+}
+
+.good-looking-table tbody tr:nth-child(odd) {
+    background-color: #eee;
+}

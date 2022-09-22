@@ -839,3 +839,18 @@ textarea {
 textarea {
   overflow: auto;
 }
+
+## styling tables
+
+### table layout
+ esta propiedad permite especificar como se comportara el layout de la tabla, de manera predeterminada las columnas tienden a tener
+ el tamaño del contenido que esta en ellas, para evitar este comportamiento y tener unos mas predecible es buena idea usar el valor
+ de fixed
+
+ fixed indica que todas las columnas van a tener el tamaño de su header, lo cual permite tener columnas uniformes, y ademas usamos
+ porcentajes o unidades relativas, vamos a poder tener tablas responsivas
+
+ ### border-collapse
+ esta propiedad permite que se cambie el comportamiento de los bordes, de manera predeterminadad los border de las celdas tienen
+ un espacio entre ellos, con el valor collapse hacemos que solo sea un borde entre ambas celdas retirando el espacio, el uso de
+ collapse es una buena practica
