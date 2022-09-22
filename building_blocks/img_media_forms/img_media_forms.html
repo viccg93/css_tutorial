@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imagenes, media y formularios</title>
+    <link rel="stylesheet" href="./img_media_forms.css">
+</head>
+<body>
+    <h2>dimensionando imagenes con max-width</h2>
+    <div class="wrapper">
+        <div class="box small-container">
+            <img src="../../resources/img/big-star.png" alt="blue star">
+        </div>
+        <div class="box small-container">
+            <img class="max" src="../../resources/img/balloons.jpg" alt="vista globos aero-estaticos">
+        </div>
+    </div>
+
+    <h2>dimensionando imagenes con object-fit</h2>
+    <div class="wrapper">
+        <div class="box small-container">
+            <img class="img-sized fit-cover" src="../../resources/img/balloons.jpg" alt="vista globos aero-estaticos">
+        </div>
+        <div class="box small-container">
+            <img class="img-sized fit-contain" src="../../resources/img/balloons.jpg" alt="vista globos aero-estaticos">
+        </div>
+        <div class="box small-container">
+            <img class="img-sized fit-fill" src="../../resources/img/balloons.jpg" alt="vista globos aero-estaticos">
+        </div>
+    </div>
+
+    <h2>imagenes en un grid layout</h2>
+    <div class="grid-wrapper">
+        <img class="img-sized" src="../../resources/img/big-star.png" alt="">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <h2>formulario</h2>
+    <form action="">
+        <div>
+            <label for="name">nombre:</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="email">email:</label>
+            <input type="email" id="email">
+        </div>
+        <div class="buttons">
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+</body>
+</html>

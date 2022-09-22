@@ -727,3 +727,115 @@ o el dispositivo donde se visita la pagina
 las unidades del viewport son vw y vh que representan el 1% del tamaño del width y height del area visible respectivamente
 
 cuando se indica que un elemento es 10vw se esta indicando que dicho elemento siempre tendra un width del 10% del arrea visible
+
+## imagenes media y formularios
+
+### replaced elements
+
+las imagenes y videos son descritos como replaced imagenes, debido a que CSS no puede afectar su layout interno, solo su posicion
+en conjunto con los demas elementos de la pagina, aunque hay multiples cosas que podemos hacer con estos elementos
+
+algunos de estos replaced elements como las imagenes y videos tienen un aspect ratio definido por la relacion entre sus dimensiones
+horizontal y vertical y son mostrados de manera predeterminada con estas dimensiones intrinsecas
+
+### dimesionando imagenes
+
+cuando posicionamos una imagen en un contenedor, esta se muestra con sus dimensiones intrinsecas, por lo que si es mas grande que el contenedor
+en cualquiera de sus dimensiones lo desbordara
+
+ese es el comportamiento predetermindo, algo que podemos cambiar la propiedad max-width: 100% que hara que el ancho de la imagen nunca sea
+mayor al de su contenedor, por lo que una imagen mas grande se va a escalar para que ocupe el ancho del contenedor (esta tecnica tambien sirve
+con video y iframe)
+
+cuando usamos esa tecnica podemos encontrarnos que la imagen se hizo mas pequeña y ya no cubre todo el contenedor, esto es por que al hacerse
+una dimension mas pequeña, la otra dimension tambien lo hace en razon del ratio, la propiedad que nos sirve en ese escenario es object-fit
+
+object fit tiene los siguientes valores
+
+- cover: hace que la imagen cubra todo el contenedor manteniendo el aspect ratio, por lo que recorta la imagen
+- contain: escala la imagen hasta que entre en el contenedor, cuando el ratio es distinto entre la imagen y el contenedor se genera "letterboxing"
+- fill: hace que la imagen cubra todo el contenedor sin respetar el aspect ratio
+
+### replaced elements en el layout
+
+los elementos replaced se comportan de manera ligeramente distinta cuando se usan tecnicas de layout, por ejemplo cuandos e usa flex o grid
+los elementos se adaptan para cobrir el area completamente pero las imagenes no tendran este comportamiento, lo que van a hacer de manera
+predeterminada es posicionarse al inicio del grid o flex y no adaptaran sus dimensiones
+
+para forzar que la imagen se adapte para llemar las dimensiones de una celda de un grid por tomar un ejemplo, podemos especificar sus dimensiones
+al 100%, aunque esta tecnica "estira" la imagen por lo que es poco probable que este sea el resultado deseado
+
+### formularios
+
+los elementos form pueden ser un reto cuando se trata de darles estilo con CSS, por lo que es recomendable ver la guia detallada del modulo,
+ya que estos elementos tienen sets de elemenentos que pueden ser estiliados con pocos o ningun detalle como en el caso
+de form, label o input text
+
+hay algunos elementos que requieren tecnicas mas complejas como checkboxes o radio buttons y algunos como datetime picker
+o color picker cuyo funcionamiento esta totalmente en manos del SO host, aun asi es importante verigficar el funcionamiento de los formularios
+en varios navegadores o en los que sabemos que nuestro sitio web sera consultado
+
+la mayoria de los elementos de un formulario son input, por lo que se debe incluir el tipo en el selector
+
+input[type="text"]
+
+al diseñar y dar estilo a un formulario siempre se debe tener en cuenta que sea facil de identificar como un elemento interactivo
+
+### herencia en formularios
+
+en algunos navegadores propiedades relacionadas a font no son heredadas de forma automatica por lo que es necesario crear
+el bloque de manera explicita para tener certeza de que los formularios tienen las mismas propiedades de font que body o el parent
+
+la regla debe de ser la siguiente:
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+### elementos del formulario y box-sizing
+
+los elementos del formulario usan distintas reglas box-sizing para diferentes widgets, por lo que para tener mayor consistencia a la hora de
+dar estilo a los formularios y en la experiencia de uso es recomendable poner los margins y paddings en 0 y border-box antes de aplicar
+el estilo
+
+button,
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+### otras configuraciones utiles
+
+ademas de las reglas mencionadas, algo util es establecer el overflow en auto para los elementos textarea, lo cual previene
+que ie muestre el scrollbar cuando no se requiere
+
+textarea {
+  overflow: auto;
+}
+
+### poniendo todas las propiedades en reset
+las siguientes reglas agrupan las consideraciones anteriores y usarlas antes de dar el estilo a los elementos del formulario
+ayuda a tener un resultado mas consistente en todos los navegadores
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+textarea {
+  overflow: auto;
+}
