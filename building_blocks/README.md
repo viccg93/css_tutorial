@@ -854,3 +854,11 @@ textarea {
  esta propiedad permite que se cambie el comportamiento de los bordes, de manera predeterminadad los border de las celdas tienen
  un espacio entre ellos, con el valor collapse hacemos que solo sea un borde entre ambas celdas retirando el espacio, el uso de
  collapse es una buena practica
+
+ ## debugging css
+ la principal herramienta para depurar css son las dev tools que incluyen los naegadores, aunque la premisa puede ser la misma
+ todas tienen particularidades que pueden ser mas utiles en ciertos casos
+
+ en el caso de firefox, es de gran utiidad poder visualizar el box model, modificar reglas en tiempo real y poder generar y guardar 
+ nuevas reglas y hojas de estilo desde el propio devtools
+
