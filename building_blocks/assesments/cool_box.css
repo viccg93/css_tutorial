@@ -1,0 +1,27 @@
+html {
+    font-family: sans-serif;
+  }
+  
+  /* Your CSS below here */
+
+  p {
+    block-size: 100px;
+    inline-size: 200px;
+    line-height: 100px;
+    margin: auto;
+    text-align: center;
+    /*  el font-size se puede ver en las propiedades de tipografia de devtools
+        si no se ha especificado, es el asignado por el navegador
+        en el caso particular de firefox es 16px
+    */
+    font-size: 1.1rem;
+    background-color: darkblue;
+    color: white;
+    text-shadow: 3px 2px 2px black;
+    border-radius: 10px;
+    border: 1px solid #010163;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(10,10,10,0.2) 30%, rgba(0,0,0,0.2) 100%);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.22), 
+                inset 5px 5px 5px 0px rgba(255, 255, 255, 0.46), 
+                3px 3px 5px 0px black;
+  }

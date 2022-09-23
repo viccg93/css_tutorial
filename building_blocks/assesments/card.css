@@ -1,0 +1,77 @@
+/* General styles */
+
+body {
+  margin: 0;
+}
+
+html {
+  font-family: 'Helvetica neue', Arial, 'sans serif';
+  font-size: 10px;
+  background-color: #ccc;
+}
+
+.card h2,
+.card p {
+  margin: 0;
+}
+
+.card h2 {
+  font-size: 2em;
+  /*como actualizamos font-size para este elemento, su relacion es 1em = 20px*/
+  line-height: 1.5em;
+}
+
+/* Selectors to be matched up with rulesets */
+
+
+
+
+/* Rulesets to be matched up with selectors */
+/*010*/
+.card {
+  width: 35em;
+  height: 22em;
+  margin: 5em auto;
+  background-color: red;
+  border: 0.2em solid black;
+  border-radius: 1.5em;
+}
+
+/*011*/
+.card header {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  border-radius: 1.5em 1.5em 0 0;
+}
+
+/*011*/
+.card footer {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  border-radius: 0 0 1.5em 1.5em;
+}
+
+/*012*/
+.card article img {
+  max-height: 100%;
+  float: right;
+}
+
+.card header,
+.card footer {
+  /*sabemos que font-size es de 10px = 1em por la regla para html*/
+  box-sizing: border-box;
+  block-size: 5rem;
+  padding: 1rem;
+}
+
+/*se debe de dar un tamaño concreto a la altura de article para que la imagen sea contenida*/
+.card article {
+  height: 12em;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding-left: 1em;
+  color: white;
+}
+
+.card footer p {
+  font-size: 1.5em;
+  line-height: 2em;
+}

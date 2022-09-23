@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    background: #ccc;
+  }
+  
+  article {
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  address {
+    position: absolute;
+    bottom: 8mm;
+    right: 20mm;
+  }
+  
+  h1 {
+    position: absolute;
+    top: 12mm;
+    left: 20mm;
+    width: 128px;
+    height: 128px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 44px 0;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+  
+  /* Your CSS below here */
+  
+  article {
+    /*fallback*/
+    background-image: url(./top-image.png);
+    background-position: top center;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 1%, rgba(255,255,255,0) 20%, rgba(255,255,255,0.15308130087972693) 86%, rgba(0,0,0,0.18389362580969892) 100%), 
+                        url(./top-image.png), 
+                        url(./bottom-image.png);
+    background-position: center top, top center, bottom center;
+    background-repeat: no-repeat;
+    background-color: white;
+    border-top: 1mm solid #e60000;
+    border-bottom: 1mm solid #e60000;
+}
+
+h1 {
+    background-image: url(./logo.png);
+    /*borde circular*/
+    border-radius: 50%;
+    /*x-offset y-offset radius color*/
+    box-shadow: 3px 3px 3px black;
+}
+
