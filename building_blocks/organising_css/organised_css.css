@@ -1,0 +1,81 @@
+/*bloques de comentarios entre secciones logicas*/
+/*ees buena idea ir de general a particular*/
+
+/* || estilos generles */
+
+body {
+    /* … */
+  }
+  
+h1,
+h2,
+h3,
+h4 {
+/* … */
+}
+  
+ul {
+/* … */
+}
+
+blockquote {
+/* … */
+}
+
+/*...*/
+
+/* || utilidades */
+
+.nobullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*...*/
+
+/* || SITEWIDE */
+
+.main-nav {
+/* … */
+}
+
+.logo {
+/* … */
+}
+
+/*...*/
+
+/* || STORE PAGES */
+
+.product-listing {
+/* … */
+}
+
+.product-box {
+/* … */
+}
+  
+/*...*/
+
+
+/*comentarios que explican el motivo de una desicion*/
+
+.box {
+    background-color: red; /* fallback para navegadores que no soportan gradientes */
+    background-image: linear-gradient(to right, #ff0000, #aa0000);
+}
+
+/*eviat usar reglas muy especificas, en estilos que pueden o van a aplicarse a diferentes elementos, asi evitar repetir la misma regla*/
+
+/*solo aplica a elementos p con class box que esten contenidos en article con clase main*/
+article.main p.box {
+    border: 1px solid #ccc;
+}
+
+/*podemos usar la clase box en cualquier elemento*/
+.box {
+    border: 1px solid #ccc;
+}
+  
+  

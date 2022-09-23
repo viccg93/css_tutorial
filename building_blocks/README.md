@@ -862,3 +862,85 @@ textarea {
  en el caso de firefox, es de gran utiidad poder visualizar el box model, modificar reglas en tiempo real y poder generar y guardar 
  nuevas reglas y hojas de estilo desde el propio devtools
 
+## organising css
+
+### recomendaciones
+- usar comentarios para marcar secciones logicas
+- usar comentarios que expliquen situaciones que no son claras solo con el codigo (justificar una desicion)
+- evitar reglas excesivamente especificas, en favor de reglas que puedan ser utilizadas por multiples elementos
+- dividir hojas de estilo grandes en hojas mas pequeñas, dividiendo las reglas que aplican a ciertos modulos es una opcion
+
+### metodologias CSS
+
+#### OOCSS
+
+object oriented CSS es una metodologia que tiene como premisa separar las reglas CSS en objetos reutilizables, que se pueden
+aplicar en todo el sitio.
+
+un ejemplo claro de la ventaja de usar esta metodologia es cuando tenemos bloques CSS donde hay reglas en comun, lo cual podria ser
+un indicativo de que exite una abstraccion que puede ser extraida
+
+estas son 2 reglas muy similares
+
+.comment {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  border-bottom: 1px solid grey;
+}
+
+la unica diferencia es que list-item usa la propiedad border-bottom, en caso de requerir una nueva variante, tendriamos que repetir
+las propiedades en comun, alternativamente podemos hacer lo siguiente siguiendo OOCSS
+
+.media {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.list-item {
+  border-bottom: 1px solid grey;
+}
+
+se ha abstraido las caracteristicas en comun en un nuevo objeto media, ahora todos los objetos pueden ser media y de ser el caso
+pueden implementar list-item, en caso de nuevas variantes basta declarar solo las propiedades concretas de la variante e implementar
+esa clase en conjunto con media
+
+#### BEM
+
+BEM es una metodologia que tiene como premisa 3 elementos que conforman su nombre
+
+1. Block - entidad independiente como un button, menu, logo
+2. Element -es una entidad cuya existencia depende de otra, por ejemplo un elemento de una lista o un title en un contenedor
+3. Modifier - una bandera en un Block o Element que cambia su estilo o comportamiento
+
+BEM usa underscores y dashes para indicar Elements y Modifiers respectivamente
+
+/* componente Block */
+.btn {}
+
+/* Element que depende de el Block .btn */ 
+.btn__price {}
+
+/* Modifiers que cambian el estilo del Block .btn */
+.btn--orange {}
+.btn--big {}
+
+#### otros sistemas
+
+existen otros sistemas populares como SMACSS, ITCSS y ACSS que pueden ser usados, aunque siempre implican una curva de aprendizaje
+
+### build systems para CSS
+
+existen 2 tipos de build systems que nos pueden ser de ayuda al generar hojas de estilo
+
+1. pre-procesadores: son procesadores que toman codigo de acierdo a la sintaxis que define el lenguaje del procesador y que generalmente
+                      permite escribir los estilos de forma mas programmatic y la compilacion de este codigo genera las hojas de estilo
+                      resultantes, los mas famosos son SASS y LESS
+2. post-procesadores: son procesadores que actuan sobre las hojas de estilo generalmente con propositos de minificacion y optimizacion,
+                      uno de los mas famosos es nanocss
+
+estas herramientas tienen sus propios CLI y herramientas como webpack permiten automatizar las rutinas pre y post procesado
