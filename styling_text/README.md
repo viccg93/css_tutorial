@@ -138,3 +138,43 @@ font: font-style font-variant font-weight font-stretch font-size / line-height f
 
 cabe destacar que las unicas propiedades mandatorias son font-size y font-family y se debe de usar forward slash entre font-size y line-height
 
+# styling lists
+
+## defaults
+
+las propiedades predeterminadas de las listas y sus elementos son los siguientes:
+- los elementos ul y ol tienen margins top y bottom de 16px (1em) y padding left de 40px (2.5em)
+- los elementos li no tienen espaciados (margin y padding)
+- los elementos dl tienen margin top y bottom de 16px (1em) sin padding
+- los elementos dd tienen margin left de 40px (2.5em)
+- los elementos p tienen margin top y bottom de 16px (1em)
+
+## espaciado en las listas
+
+cuando se esta dando estilo a una lista se necesita ajustar el espacio vertical entre ella y los elementos de alrededor, lo cual se conoce como vertical rhythm
+ademas del mismo espaciado horizontal para lograr uniformidad
+
+el espaciado vertical se logra agregando reglas para font-size y line-height a la pagina y a los elementos de las listas respectivamente
+
+## estilos especificos de las listas
+existen tres propiedades principales que permiten cambiar el comportamiento de las listas y aplican a los elementos ul y ol
+
+- list-style-type: permite modificar los bullets de la lista
+- list-style-position: indica la posicion de los bullets (inicio, dentro o fuera de la lista)
+- list-style-image: permite usar una imagen como bullet
+
+ademas de que existe la propiedad shorthand list-style que permite asignar las propiedades anteriores
+
+algo que se debe tener en cuenta cuando se usa list-style-position, es que en el valor inside los bullets se encuentran el el content box, por lo tanto alineados
+a la izquierda y cuando se usa el valor outside los bullets pasan a estar en el padding-box por lo que se encuentra alineado a la derecha o lo que realmente se
+encuentra alineado es el texto de los elementos de la lista y no los bullets
+
+la propiedad list-style-image recibe el url de la imagen, tal como cuando se usa background-image, aunque su uso es muy limitado en comparacion background
+se recomienda usar background debido a que permite dimensionar y posicionar la imagen, entre otras posibilidades
+
+## controlando el conteo de las listas
+para controlar el valor de los bullets y la forma en que se comportan tenemos tres atributos que generalmente se agregan en el html
+
+- start: con esta propiedad se indica el valor numerico en el cual iniciara el conteo (ascendente de manera predeterminada), se usa start="1" en ul/ol
+- reversed: este atributo indica que el conteo sera descendiente, basta con agregar el atributo a la etiqueta en ul/ol
+- value: permite establecer cual sera el valor del elemento de forma especifica, se usa value="2" y va en la etiqueta li

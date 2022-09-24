@@ -1,0 +1,54 @@
+/* General styles */
+
+html {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 10px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  ul,
+  ol,
+  dl,
+  p {
+    font-size: 1.5rem;
+  }
+  
+  li,
+  p {
+    line-height: 1.5;
+  }
+  
+  /* Description list styles */
+  
+  dd,
+  dt {
+    line-height: 1.5;
+  }
+  
+  dt {
+    font-weight: bold;
+  }
+
+.custom-list {
+    list-style-type:upper-roman;
+    /*si se declaran inside los bullets estan dentro del content box, outside se encuentran en el padding box*/
+    list-style-position: inside;
+    /*shorthand equivalente*/
+    list-style: upper-roman inside;
+}
+
+.image-custom-list {
+    padding-left: 2rem;
+    list-style-type: none;
+}
+
+.image-custom-list li{
+    padding-left: 2rem;
+    background-image: url(../../resources/img/star.png);
+    background-position: 0 0;
+    background-size: 1.6rem 1.6rem;
+    background-repeat: no-repeat;
+}
