@@ -1,0 +1,84 @@
+/* fonts import */
+
+@font-face {
+    font-family: '2dumbregular';
+    src: url('../../resources/fonts/web/2dumb-webfont.eot');
+    src: url('../../resources/fonts/web/2dumb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../resources/fonts/web/2dumb-webfont.woff2') format('woff2'),
+         url('../../resources/fonts/web/2dumb-webfont.woff') format('woff'),
+         url('../../resources/fonts/web/2dumb-webfont.ttf') format('truetype'),
+         url('../../resources/fonts/web/2dumb-webfont.svg#2dumbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: '3dumbregular';
+    src: url('../../resources/fonts/web/3dumb-webfont.eot');
+    src: url('../../resources/fonts/web/3dumb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../resources/fonts/web/3dumb-webfont.woff2') format('woff2'),
+         url('../../resources/fonts/web/3dumb-webfont.woff') format('woff'),
+         url('../../resources/fonts/web/3dumb-webfont.ttf') format('truetype'),
+         url('../../resources/fonts/web/3dumb-webfont.svg#3dumbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aaarghnormal';
+    src: url('../../resources/fonts/web/aaargh-webfont.eot');
+    src: url('../../resources/fonts/web/aaargh-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../resources/fonts/web/aaargh-webfont.woff2') format('woff2'),
+         url('../../resources/fonts/web/aaargh-webfont.woff') format('woff'),
+         url('../../resources/fonts/web/aaargh-webfont.ttf') format('truetype'),
+         url('../../resources/fonts/web/aaargh-webfont.svg#aaarghnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* General setup */
+
+html {
+    font-size: 10px;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Typography */
+
+h1 {
+    font-size: 3.2rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+h1,
+h2 {
+    /*indicamos el generic type en caso de que no se encuentre disponible la fuente*/
+    font-family: "3dumbregular", sans-serif;
+    letter-spacing: 0.2rem;
+}
+
+p {
+    font-family: "aaarghnormal", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    word-spacing: 0.6rem;
+}
