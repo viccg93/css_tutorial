@@ -178,3 +178,73 @@ para controlar el valor de los bullets y la forma en que se comportan tenemos tr
 - start: con esta propiedad se indica el valor numerico en el cual iniciara el conteo (ascendente de manera predeterminada), se usa start="1" en ul/ol
 - reversed: este atributo indica que el conteo sera descendiente, basta con agregar el atributo a la etiqueta en ul/ol
 - value: permite establecer cual sera el valor del elemento de forma especifica, se usa value="2" y va en la etiqueta li
+
+# styling links
+
+para dar estilo a los links es importante tener en cuenta que estos usan pseudoclases como estados, y mediante estas pseudoclases podemos estilizar
+los posibles estados en los que puede estar un enlace en un momento determinado
+
+- link: un enlace con destino
+- visited: un enlace que ha sido visitado
+- hover: cuando el cursor esta sobre el enlace
+- focus: cuando el foco se encuentra en el enlace
+- active: un enlace activado
+
+los estilos predeterminados pueden ser cambiados mediante las propiedades
+
+- color
+- cursor
+- outline
+
+al generar los bloques para dar estilo a los enlaces es importante el orden, ya que van unos sobre otros (cascade)
+
+1.link
+2.visited
+3.focus
+4.hover
+5.active
+
+# web fonts
+
+frente a la situacion donde no tenemos control de las fuentes dispinibles en los diferentes host que visitan nuestro sitio, tenemos la posibilidad de usar
+web font, que son especificadas en css y se descargan en conjunto con el sitio, por lo que el sitio usara la fuente correcta en la mayoria de los dispositivos
+
+la declaracion se puede realizar con @font-face de la siguiente manera
+
+@font-face {
+  font-family: "myFont";
+  src: url("myFont.woff2");
+}
+
+con lo que bastaria usarla en un stack para brindar mayor compatibilidad
+
+html {
+  font-family: "myFont", "Bitstream Vera Serif", serif;
+}
+
+
+existen distintas formas de obtener fuentes tanto open source como comerciales en las siguientes opciones:
+
+- distribuidores de free fonts como font squirrel
+- distribuidores de paid fonts como fonts o myfonts y directamente en las font foundries
+- servicios de fonts online que son sitios que alamacenan y tienen los mecanismos para consumir las fonts
+
+en las opciones de distribuidores de fonts, es necesario descargar el kit de webfont o en su defecto convertir los archivos a woff/woff2
+que son los formatos soportados por la mayoria de los navegadores modernos, muchos de estos kits incluyen las versiones eot y svg
+para brindar compatibilidad con navegdores antiguos
+
+siempre es importante revisar y cumplir la licencia de las fuentes
+
+## propiedades en la declaracion @font-face
+
+- font-family: este es el nombre con el que se referenciara a la fuente en todo el sitio, puede ser el que el programador decida
+- src: son multiples lineas donde se agregan las fuentes en los formatos disponibles, el formato es url(font.woff2) format(woff2)
+        cada linea va separada por coma y los formatos que se declaran primero tienen mayor prioridad
+- font-weight/font-style: permite declarar las fuentes a las que hara referencia el texto cuando se usen esas propiedades
+
+tambien hay propiedades que se pueden usar como font-variant y font-stretch, en el caso de navegadores mas modernos se puede usar
+la propiedad unicode-range que permite usar solo un rango de caracteres de la fuente
+
+## variable fonts
+es una tecnologia mas reciente que permite que las variaciones de la fuente se encuentren en un solo archivo, cabe destacar que es
+un temas mas avanzado y tiene dependencias con la version de los navegadores y el so donde se consulta la pagina web
