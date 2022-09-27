@@ -1,4 +1,5 @@
 #!/bin/sh
+#author: Vic_cg
 
 echo "obteniendo ruta para archivos iniciales"
 script_path=$(readlink -f "$0")
