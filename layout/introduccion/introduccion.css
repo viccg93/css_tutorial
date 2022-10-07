@@ -1,0 +1,129 @@
+.container {
+    display: flex;
+}
+
+.box {
+    background: rgb(137, 245, 200);
+    border: 1px solid black;
+}
+
+.flexible {
+    flex: 1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    gap: 1em;
+}
+
+.box-one {
+    grid-column: 2/4;
+    grid-row: 1;
+}
+
+.box-two {
+    grid-column: 1;
+    grid-row: 1/3;
+}
+
+.box-three {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.left-floated-box {
+    background: rgb(137, 245, 200);
+    border: 1px solid black;
+    block-size: 20em;
+    inline-size: 20em;
+    float: left;
+    margin: 0.5em;
+}
+
+p {
+    line-height: 2;
+}
+
+body {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.position p {
+    background-color: rgb(207, 232, 220);
+    border: 2px solid rgb(79, 185, 227);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.position .relative {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    background-color: rgba(224, 47, 15, 0.548);
+    border: 2px solid rgba(241, 34, 7, 0.945);
+}
+
+.position .absolute {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: rgba(224, 47, 15, 0.548);
+    border: 2px solid rgba(241, 34, 7, 0.945);
+}
+
+.fixed {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    background-color: rgba(224, 47, 15, 0.548);
+    border: 2px solid rgba(241, 34, 7, 0.945);
+}
+
+.sticky {
+    position: sticky;
+    top: 30px;
+    left: 30px;
+    background-color: rgba(224, 47, 15, 0.548);
+    border: 2px solid rgba(241, 34, 7, 0.945);
+}
+
+form {
+    display: table;
+    margin: 0 auto;
+}
+
+form div {
+    display: table-row;
+}
+
+form label,
+form input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+form label {
+    width: 200px;
+    padding-right: 5%;
+    text-align: right;
+}
+
+form input {
+    width: 300px;
+}
+
+form p {
+    display: table-caption;
+    caption-side: bottom;
+    width: 300px;
+    color: #999;
+    font-style: italic;
+}
+
+.multi-column-container {
+    column-width: 200px;
+}
